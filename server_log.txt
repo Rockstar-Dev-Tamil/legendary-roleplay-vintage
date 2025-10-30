@@ -1,0 +1,2188 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[03:52:52] password = ""  (string)
+[03:52:52] 
+[03:52:52] Server Plugins
+[03:52:52] --------------
+[03:52:52]  Loading plugin: sampvoice.so
+[03:52:52] [sv:dbg:network:init] : module initializing...
+[03:52:52] [dbg:raknet:init] : module initializing...
+[03:52:52] [dbg:raknet:init] : module initialized
+[03:52:52] [sv:dbg:network:init] : module initialized
+[03:52:52] [sv:dbg:main:Load] : creating 4 work threads...
+[03:52:52]  -------------------------------------------    
+[03:52:52]    ___                __   __    _              
+[03:52:52]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[03:52:52]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[03:52:52]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[03:52:52]                   |_|                           
+[03:52:52]  -------------------------------------------    
+[03:52:52]            SampVoice by MOR loaded              
+[03:52:52]  -------------------------------------------    
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: sampvoice
+[03:52:52]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[03:52:52]  Loading plugin: crashdetect.so
+[03:52:52]   CrashDetect plugin 4.19.4
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: whirlpool.so
+[03:52:52]  
+[03:52:52]  ==================
+[03:52:52]  
+[03:52:52]   Whirlpool loaded
+[03:52:52]  
+[03:52:52]  ==================
+[03:52:52]  
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: pawncmd.so
+[03:52:52] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: sscanf.so
+[03:52:52] 
+
+[03:52:52]  ===============================
+
+[03:52:52]       sscanf plugin loaded.     
+
+[03:52:52]          Version:  2.8.3        
+
+[03:52:52]   (c) 2018 Alex "Y_Less" Cole  
+
+[03:52:52]  ===============================
+
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: streamer.so
+[03:52:52] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: SKY.so
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: mysql_static.so
+[03:52:52]  >> plugin.mysql: R39-6 successfully loaded.
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: nativechecker.so
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: pawn-memory.so
+[03:52:52] ========================
+[03:52:52] = Memory access plugin =
+[03:52:52] =       Made by BigETI =
+[03:52:52] = Loaded!              =
+[03:52:52] ========================
+[03:52:52]   Loaded.
+[03:52:52]  Loading plugin: FileFunctions.so
+[03:52:52]   Loaded.
+[03:52:52]  Loaded 11 plugins.
+
+[03:52:52] 
+[03:52:52] Ban list
+[03:52:52] --------
+[03:52:52]  Loaded: samp.ban
+[03:52:52] 
+[03:52:52] 
+[03:52:52] Filterscripts
+[03:52:52] ---------------
+[03:52:52]   Loading filterscript 'android-check.amx'...
+[03:52:52] [sv:dbg:main:AmxLoad] : net game pointer (value:0x8a6cb70) received
+[03:52:52] [sv:dbg:network:bind] : voice server running on port 41753
+[03:52:52] Android check has been successfully loaded.
+[03:52:52]   Loading filterscript 'jobmap.amx'...
+[03:52:52]   Loading filterscript 'antiddos.amx'...
+[03:52:52]    Error: Function not registered: 'fileOpen'
+[03:52:52]    Error: Function not registered: 'fileSeek'
+[03:52:52]    Error: Function not registered: 'fileRead'
+[03:52:52]   Loading filterscript 'Anti_vpn.amx'...
+[03:52:52] 
+--------------------------------------
+[03:52:52]         Anti Proxy by Delet User         
+[03:52:52] --------------------------------------
+
+[03:52:52]   Loaded 4 filterscripts.
+
+[03:52:52]    Error: Function not registered: 'MEM_get_val'
+[03:52:52]    Error: Function not registered: 'MEM_get_size'
+[03:52:52]    Error: Function not registered: 'MEM_get_arr'
+[03:52:52]    Error: Function not registered: 'MEM_delete'
+[03:52:52]    Error: Function not registered: 'MEM_set_val'
+[03:52:52]    Error: Function not registered: 'MEM_new'
+[03:52:52]    Error: Function not registered: 'MEM_new_arr'
+[03:52:52]    Error: Function not registered: 'MEM_copy'
+[03:52:52] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[03:52:52] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[03:52:52]  
+[03:52:52] --------------------------------------
+[03:52:52]  Nex-AC loaded!
+[03:52:52]  Nex-AC version: 1.9.55
+[03:52:52]  Author: Nexius
+[03:52:52] --------------------------------------
+
+[03:52:52] EnableTirePopping() function is removed.
+[03:52:53] Couldn't connect to radio station database... server will continue to operate normally.
+[03:52:54] Legendary Roleplay
+[03:52:54] 398 objects loaded.
+[03:52:54] Number of vehicle models: 9
+[03:52:54] [Script] 0 atms loaded
+[03:52:54] [Script] 0 vendors loaded
+[03:52:54] [Script] 0 mdc loaded
+[03:52:54] [Script] 0 surgery room loaded
+[03:52:54] [Script] 4 Public Garage loaded
+[03:52:54] [Script] 0 houses loaded.
+[03:52:54] [Script] 0 garages loaded.
+[03:52:55] [Script] 1 businesses loaded.
+[03:52:55] [Script] 1 businesses loaded.
+[03:52:55] [Script] 0 entrances loaded.
+[03:52:55] [Script] 2 factions loaded.
+[03:52:55] [Script] 0 lands loaded.
+[03:52:55] [Script] 0 gangs loaded.
+[03:52:56] [Script] 0 points loaded.
+[03:52:56] [Script] 0 turfs loaded.
+[03:52:56] [MySQL] 0 textlabel loaded.
+[03:54:34] [query:p] from 157.51.35.176
+[03:54:34] [query:p] from 157.51.35.176
+[03:54:34] [query:i] from 157.51.35.176
+[03:54:54] [query:p] from 157.51.35.176
+[03:54:54] [query:p] from 157.51.35.176
+[03:54:54] [query:i] from 157.51.35.176
+[03:55:03] [connection] incoming connection: 157.51.35.176:55229 id: 0
+[03:55:04] [join] Ambi_Da has joined the server (0:157.51.35.176)
+[03:55:04] Ambi_Da Just connected to the server.
+[03:55:04] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.35.176]
+[03:55:13] {25c712}Ambi Da has logged in as a .
+[03:55:23] [chat] [Ambi_Da]: ...
+[03:55:42] [query:p] from 157.51.35.176
+[03:55:42] [query:p] from 157.51.35.176
+[03:55:42] [query:i] from 157.51.35.176
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[03:55:54] password = ""  (string)
+[03:55:54] 
+[03:55:54] Server Plugins
+[03:55:54] --------------
+[03:55:54]  Loading plugin: sampvoice.so
+[03:55:54] [sv:dbg:network:init] : module initializing...
+[03:55:54] [dbg:raknet:init] : module initializing...
+[03:55:54] [dbg:raknet:init] : module initialized
+[03:55:54] [sv:dbg:network:init] : module initialized
+[03:55:54] [sv:dbg:main:Load] : creating 4 work threads...
+[03:55:54]  -------------------------------------------    
+[03:55:54]    ___                __   __    _              
+[03:55:54]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[03:55:54]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[03:55:54]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[03:55:54]                   |_|                           
+[03:55:54]  -------------------------------------------    
+[03:55:54]            SampVoice by MOR loaded              
+[03:55:54]  -------------------------------------------    
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: sampvoice
+[03:55:54]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[03:55:54]  Loading plugin: crashdetect.so
+[03:55:54]   CrashDetect plugin 4.19.4
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: whirlpool.so
+[03:55:54]  
+[03:55:54]  ==================
+[03:55:54]  
+[03:55:54]   Whirlpool loaded
+[03:55:54]  
+[03:55:54]  ==================
+[03:55:54]  
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: pawncmd.so
+[03:55:54] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: sscanf.so
+[03:55:54] 
+
+[03:55:54]  ===============================
+
+[03:55:54]       sscanf plugin loaded.     
+
+[03:55:54]          Version:  2.8.3        
+
+[03:55:54]   (c) 2018 Alex "Y_Less" Cole  
+
+[03:55:54]  ===============================
+
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: streamer.so
+[03:55:54] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: SKY.so
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: mysql_static.so
+[03:55:54]  >> plugin.mysql: R39-6 successfully loaded.
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: nativechecker.so
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: pawn-memory.so
+[03:55:54] ========================
+[03:55:54] = Memory access plugin =
+[03:55:54] =       Made by BigETI =
+[03:55:54] = Loaded!              =
+[03:55:54] ========================
+[03:55:54]   Loaded.
+[03:55:54]  Loading plugin: FileFunctions.so
+[03:55:54]   Loaded.
+[03:55:54]  Loaded 11 plugins.
+
+[03:55:54] 
+[03:55:54] Ban list
+[03:55:54] --------
+[03:55:54]  Loaded: samp.ban
+[03:55:54] 
+[03:55:54] 
+[03:55:54] Filterscripts
+[03:55:54] ---------------
+[03:55:54]   Loading filterscript 'android-check.amx'...
+[03:55:54] [sv:dbg:main:AmxLoad] : net game pointer (value:0x965ab70) received
+[03:55:54] [sv:dbg:network:bind] : voice server running on port 33938
+[03:55:54] Android check has been successfully loaded.
+[03:55:54]   Loading filterscript 'jobmap.amx'...
+[03:55:54]   Loading filterscript 'antiddos.amx'...
+[03:55:54]    Error: Function not registered: 'fileOpen'
+[03:55:54]    Error: Function not registered: 'fileSeek'
+[03:55:54]    Error: Function not registered: 'fileRead'
+[03:55:54]   Loading filterscript 'Anti_vpn.amx'...
+[03:55:54] 
+--------------------------------------
+[03:55:54]         Anti Proxy by Delet User         
+[03:55:54] --------------------------------------
+
+[03:55:54]   Loaded 4 filterscripts.
+
+[03:55:54]    Error: Function not registered: 'MEM_get_val'
+[03:55:54]    Error: Function not registered: 'MEM_get_size'
+[03:55:54]    Error: Function not registered: 'MEM_get_arr'
+[03:55:54]    Error: Function not registered: 'MEM_delete'
+[03:55:54]    Error: Function not registered: 'MEM_set_val'
+[03:55:54]    Error: Function not registered: 'MEM_new'
+[03:55:54]    Error: Function not registered: 'MEM_new_arr'
+[03:55:54]    Error: Function not registered: 'MEM_copy'
+[03:55:54] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[03:55:54] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[03:55:54]  
+[03:55:54] --------------------------------------
+[03:55:54]  Nex-AC loaded!
+[03:55:54]  Nex-AC version: 1.9.55
+[03:55:54]  Author: Nexius
+[03:55:54] --------------------------------------
+
+[03:55:54] EnableTirePopping() function is removed.
+[03:55:54] Couldn't connect to radio station database... server will continue to operate normally.
+[03:55:54] Legendary Roleplay
+[03:55:54] 398 objects loaded.
+[03:55:54] Number of vehicle models: 9
+[03:55:55] [Script] 0 atms loaded
+[03:55:55] [Script] 0 vendors loaded
+[03:55:55] [Script] 0 mdc loaded
+[03:55:55] [Script] 0 surgery room loaded
+[03:55:55] [Script] 4 Public Garage loaded
+[03:55:55] [Script] 0 houses loaded.
+[03:55:55] [Script] 0 garages loaded.
+[03:55:55] [Script] 1 businesses loaded.
+[03:55:55] [Script] 1 businesses loaded.
+[03:55:55] [Script] 0 entrances loaded.
+[03:55:55] [Script] 2 factions loaded.
+[03:55:56] [Script] 0 lands loaded.
+[03:55:56] [Script] 0 gangs loaded.
+[03:55:56] [Script] 0 points loaded.
+[03:55:56] [Script] 0 turfs loaded.
+[03:55:56] [MySQL] 0 textlabel loaded.
+[03:56:43] [query:p] from 157.51.35.176
+[03:56:43] [query:p] from 157.51.35.176
+[03:56:43] [query:i] from 157.51.35.176
+[03:56:45] [query:p] from 157.51.35.176
+[03:56:45] [query:p] from 157.51.35.176
+[03:56:45] [query:i] from 157.51.35.176
+[03:56:54] [connection] incoming connection: 157.51.35.176:60290 id: 0
+[03:56:55] [sv:dbg:network:connect] : connecting player (0) with address (157.51.35.176) ...
+[03:56:55] [sv:dbg:network:connect] : player (0) assigned key (b023339dff5c9959)
+[03:56:55] [join] Ambi_Da has joined the server (0:157.51.35.176)
+[03:56:55] Ambi_Da Just connected to the server.
+[03:56:55] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.35.176]
+[03:57:04] {25c712}Ambi Da has logged in as a .
+[03:57:21] [sv:dbg:network:connect] : disconnecting player (0) ...
+[03:57:21] Ambi_Da Just left the server.
+[03:57:21] [part] Ambi_Da has left the server (0:0)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[04:08:10] password = ""  (string)
+[04:08:10] 
+[04:08:10] Server Plugins
+[04:08:10] --------------
+[04:08:10]  Loading plugin: sampvoice.so
+[04:08:10] [sv:dbg:network:init] : module initializing...
+[04:08:10] [dbg:raknet:init] : module initializing...
+[04:08:10] [dbg:raknet:init] : module initialized
+[04:08:10] [sv:dbg:network:init] : module initialized
+[04:08:10] [sv:dbg:main:Load] : creating 4 work threads...
+[04:08:10]  -------------------------------------------    
+[04:08:10]    ___                __   __    _              
+[04:08:10]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[04:08:10]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[04:08:10]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[04:08:10]                   |_|                           
+[04:08:10]  -------------------------------------------    
+[04:08:10]            SampVoice by MOR loaded              
+[04:08:10]  -------------------------------------------    
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: sampvoice
+[04:08:10]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[04:08:10]  Loading plugin: crashdetect.so
+[04:08:10]   CrashDetect plugin 4.19.4
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: whirlpool.so
+[04:08:10]  
+[04:08:10]  ==================
+[04:08:10]  
+[04:08:10]   Whirlpool loaded
+[04:08:10]  
+[04:08:10]  ==================
+[04:08:10]  
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: pawncmd.so
+[04:08:10] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: sscanf.so
+[04:08:10] 
+
+[04:08:10]  ===============================
+
+[04:08:10]       sscanf plugin loaded.     
+
+[04:08:10]          Version:  2.8.3        
+
+[04:08:10]   (c) 2018 Alex "Y_Less" Cole  
+
+[04:08:10]  ===============================
+
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: streamer.so
+[04:08:10] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: SKY.so
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: mysql_static.so
+[04:08:10]  >> plugin.mysql: R39-6 successfully loaded.
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: nativechecker.so
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: pawn-memory.so
+[04:08:10] ========================
+[04:08:10] = Memory access plugin =
+[04:08:10] =       Made by BigETI =
+[04:08:10] = Loaded!              =
+[04:08:10] ========================
+[04:08:10]   Loaded.
+[04:08:10]  Loading plugin: FileFunctions.so
+[04:08:10]   Loaded.
+[04:08:10]  Loaded 11 plugins.
+
+[04:08:10] 
+[04:08:10] Ban list
+[04:08:10] --------
+[04:08:10]  Loaded: samp.ban
+[04:08:10] 
+[04:08:10] 
+[04:08:10] Filterscripts
+[04:08:10] ---------------
+[04:08:10]   Loading filterscript 'android-check.amx'...
+[04:08:10] [sv:dbg:main:AmxLoad] : net game pointer (value:0x8ecef80) received
+[04:08:10] [sv:dbg:network:bind] : voice server running on port 41738
+[04:08:10] Android check has been successfully loaded.
+[04:08:10]   Loading filterscript 'jobmap.amx'...
+[04:08:10]   Loading filterscript 'antiddos.amx'...
+[04:08:10]    Error: Function not registered: 'fileOpen'
+[04:08:10]    Error: Function not registered: 'fileSeek'
+[04:08:10]    Error: Function not registered: 'fileRead'
+[04:08:10]   Loading filterscript 'Anti_vpn.amx'...
+[04:08:10] 
+--------------------------------------
+[04:08:10]         Anti Proxy by Delet User         
+[04:08:10] --------------------------------------
+
+[04:08:10]   Loaded 4 filterscripts.
+
+[04:08:10]    Error: Function not registered: 'MEM_get_val'
+[04:08:10]    Error: Function not registered: 'MEM_get_size'
+[04:08:10]    Error: Function not registered: 'MEM_get_arr'
+[04:08:10]    Error: Function not registered: 'MEM_delete'
+[04:08:10]    Error: Function not registered: 'MEM_set_val'
+[04:08:10]    Error: Function not registered: 'MEM_new'
+[04:08:10]    Error: Function not registered: 'MEM_new_arr'
+[04:08:10]    Error: Function not registered: 'MEM_copy'
+[04:08:10] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[04:08:10] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[04:08:10]  
+[04:08:10] --------------------------------------
+[04:08:10]  Nex-AC loaded!
+[04:08:10]  Nex-AC version: 1.9.55
+[04:08:10]  Author: Nexius
+[04:08:10] --------------------------------------
+
+[04:08:10] EnableTirePopping() function is removed.
+[04:08:11] Couldn't connect to radio station database... server will continue to operate normally.
+[04:08:11] Legendary Roleplay
+[04:08:11] 398 objects loaded.
+[04:08:11] Number of vehicle models: 9
+[04:08:11] [Script] 0 atms loaded
+[04:08:11] [Script] 0 vendors loaded
+[04:08:11] [Script] 0 mdc loaded
+[04:08:11] [Script] 0 surgery room loaded
+[04:08:11] [Script] 4 Public Garage loaded
+[04:08:12] [Script] 0 houses loaded.
+[04:08:12] [Script] 0 garages loaded.
+[04:08:12] [Script] 1 businesses loaded.
+[04:08:12] [Script] 1 businesses loaded.
+[04:08:12] [Script] 0 entrances loaded.
+[04:08:12] [Script] 2 factions loaded.
+[04:08:12] [Script] 0 lands loaded.
+[04:08:13] [Script] 0 gangs loaded.
+[04:08:13] [Script] 0 points loaded.
+[04:08:13] [Script] 0 turfs loaded.
+[04:08:13] [MySQL] 0 textlabel loaded.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[04:30:33] password = ""  (string)
+[04:30:33] 
+[04:30:33] Server Plugins
+[04:30:33] --------------
+[04:30:33]  Loading plugin: sampvoice.so
+[04:30:33] [sv:dbg:network:init] : module initializing...
+[04:30:33] [dbg:raknet:init] : module initializing...
+[04:30:33] [dbg:raknet:init] : module initialized
+[04:30:33] [sv:dbg:network:init] : module initialized
+[04:30:33] [sv:dbg:main:Load] : creating 4 work threads...
+[04:30:33]   ________                       .___        _________ .__                   .___  
+[04:30:33]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[04:30:33] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[04:30:33] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[04:30:33]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[04:30:33]         \/     \/                 \/     \/          \/                       \/  
+[04:30:33]    ___                __   __    _              
+[04:30:33]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[04:30:33]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[04:30:33]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[04:30:33]                   |_|                           
+[04:30:33]  -------------------------------------------    
+[04:30:33]   SampVoice by MOR for Garuda Cloud loaded      
+[04:30:33]  -------------------------------------------    
+[04:30:33]      ╒══════════════════════════════════╕       
+[04:30:33]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[04:30:33]      └──────────────────────────────────┘       
+[04:30:33]  -------------------------------------------    
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: sampvoice
+[04:30:33]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[04:30:33]  Loading plugin: crashdetect.so
+[04:30:33]   CrashDetect plugin 4.19.4
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: whirlpool.so
+[04:30:33]  
+[04:30:33]  ==================
+[04:30:33]  
+[04:30:33]   Whirlpool loaded
+[04:30:33]  
+[04:30:33]  ==================
+[04:30:33]  
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: pawncmd.so
+[04:30:33] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: sscanf.so
+[04:30:33] 
+
+[04:30:33]  ===============================
+
+[04:30:33]       sscanf plugin loaded.     
+
+[04:30:33]          Version:  2.8.3        
+
+[04:30:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[04:30:33]  ===============================
+
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: streamer.so
+[04:30:33] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: SKY.so
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: mysql_static.so
+[04:30:33]  >> plugin.mysql: R39-6 successfully loaded.
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: nativechecker.so
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: pawn-memory.so
+[04:30:33] ========================
+[04:30:33] = Memory access plugin =
+[04:30:33] =       Made by BigETI =
+[04:30:33] = Loaded!              =
+[04:30:33] ========================
+[04:30:33]   Loaded.
+[04:30:33]  Loading plugin: FileFunctions.so
+[04:30:33]   Loaded.
+[04:30:33]  Loaded 11 plugins.
+
+[04:30:33] 
+[04:30:33] Ban list
+[04:30:33] --------
+[04:30:33]  Loaded: samp.ban
+[04:30:33] 
+[04:30:33] 
+[04:30:33] Filterscripts
+[04:30:33] ---------------
+[04:30:33]   Loading filterscript 'android-check.amx'...
+[04:30:33] [sv:dbg:main:AmxLoad] : net game pointer (value:0x832df80) received
+[04:30:33] [sv:dbg:network:bind] : voice server running on port 30001
+[04:30:33] Android check has been successfully loaded.
+[04:30:33]   Loading filterscript 'jobmap.amx'...
+[04:30:33]   Loading filterscript 'antiddos.amx'...
+[04:30:33]    Error: Function not registered: 'fileOpen'
+[04:30:33]    Error: Function not registered: 'fileSeek'
+[04:30:33]    Error: Function not registered: 'fileRead'
+[04:30:33]   Loading filterscript 'Anti_vpn.amx'...
+[04:30:33] 
+--------------------------------------
+[04:30:33]         Anti Proxy by Delet User         
+[04:30:33] --------------------------------------
+
+[04:30:33]   Loaded 4 filterscripts.
+
+[04:30:33]    Error: Function not registered: 'MEM_get_val'
+[04:30:33]    Error: Function not registered: 'MEM_get_size'
+[04:30:33]    Error: Function not registered: 'MEM_get_arr'
+[04:30:33]    Error: Function not registered: 'MEM_delete'
+[04:30:33]    Error: Function not registered: 'MEM_set_val'
+[04:30:33]    Error: Function not registered: 'MEM_new'
+[04:30:33]    Error: Function not registered: 'MEM_new_arr'
+[04:30:33]    Error: Function not registered: 'MEM_copy'
+[04:30:33] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[04:30:33] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[04:30:33]  
+[04:30:33] --------------------------------------
+[04:30:33]  Nex-AC loaded!
+[04:30:33]  Nex-AC version: 1.9.55
+[04:30:33]  Author: Nexius
+[04:30:33] --------------------------------------
+
+[04:30:33] EnableTirePopping() function is removed.
+[04:30:33] Couldn't connect to radio station database... server will continue to operate normally.
+[04:30:33] Legendary Roleplay
+[04:30:33] 398 objects loaded.
+[04:30:33] Number of vehicle models: 9
+[04:30:34] [Script] 0 atms loaded
+[04:30:34] [Script] 0 vendors loaded
+[04:30:34] [Script] 0 mdc loaded
+[04:30:34] [Script] 0 surgery room loaded
+[04:30:34] [Script] 4 Public Garage loaded
+[04:30:34] [Script] 0 houses loaded.
+[04:30:34] [Script] 0 garages loaded.
+[04:30:34] [Script] 1 businesses loaded.
+[04:30:35] [Script] 1 businesses loaded.
+[04:30:35] [Script] 0 entrances loaded.
+[04:30:35] [Script] 2 factions loaded.
+[04:30:35] [Script] 0 lands loaded.
+[04:30:35] [Script] 0 gangs loaded.
+[04:30:35] [Script] 0 points loaded.
+[04:30:35] [Script] 0 turfs loaded.
+[04:30:36] [MySQL] 0 textlabel loaded.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[04:31:02] password = ""  (string)
+[04:31:02] 
+[04:31:02] Server Plugins
+[04:31:02] --------------
+[04:31:02]  Loading plugin: sampvoice.so
+[04:31:02] [sv:dbg:network:init] : module initializing...
+[04:31:02] [dbg:raknet:init] : module initializing...
+[04:31:02] [dbg:raknet:init] : module initialized
+[04:31:02] [sv:dbg:network:init] : module initialized
+[04:31:02] [sv:dbg:main:Load] : creating 4 work threads...
+[04:31:02]   ________                       .___        _________ .__                   .___  
+[04:31:02]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[04:31:02] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[04:31:02] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[04:31:02]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[04:31:02]         \/     \/                 \/     \/          \/                       \/  
+[04:31:02]    ___                __   __    _              
+[04:31:02]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[04:31:02]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[04:31:02]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[04:31:02]                   |_|                           
+[04:31:02]  -------------------------------------------    
+[04:31:02]   SampVoice by MOR for Garuda Cloud loaded      
+[04:31:02]  -------------------------------------------    
+[04:31:02]      ╒══════════════════════════════════╕       
+[04:31:02]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[04:31:02]      └──────────────────────────────────┘       
+[04:31:02]  -------------------------------------------    
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: sampvoice
+[04:31:02]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[04:31:02]  Loading plugin: crashdetect.so
+[04:31:02]   CrashDetect plugin 4.19.4
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: whirlpool.so
+[04:31:02]  
+[04:31:02]  ==================
+[04:31:02]  
+[04:31:02]   Whirlpool loaded
+[04:31:02]  
+[04:31:02]  ==================
+[04:31:02]  
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: pawncmd.so
+[04:31:02] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: sscanf.so
+[04:31:02] 
+
+[04:31:02]  ===============================
+
+[04:31:02]       sscanf plugin loaded.     
+
+[04:31:02]          Version:  2.8.3        
+
+[04:31:02]   (c) 2018 Alex "Y_Less" Cole  
+
+[04:31:02]  ===============================
+
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: streamer.so
+[04:31:02] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: SKY.so
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: mysql_static.so
+[04:31:02]  >> plugin.mysql: R39-6 successfully loaded.
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: nativechecker.so
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: pawn-memory.so
+[04:31:02] ========================
+[04:31:02] = Memory access plugin =
+[04:31:02] =       Made by BigETI =
+[04:31:02] = Loaded!              =
+[04:31:02] ========================
+[04:31:02]   Loaded.
+[04:31:02]  Loading plugin: FileFunctions.so
+[04:31:02]   Loaded.
+[04:31:02]  Loaded 11 plugins.
+
+[04:31:02] 
+[04:31:02] Ban list
+[04:31:02] --------
+[04:31:02]  Loaded: samp.ban
+[04:31:02] 
+[04:31:02] 
+[04:31:02] Filterscripts
+[04:31:02] ---------------
+[04:31:02]   Loading filterscript 'android-check.amx'...
+[04:31:02] [sv:dbg:main:AmxLoad] : net game pointer (value:0x8b74f80) received
+[04:31:02] [sv:dbg:network:bind] : voice server running on port 30001
+[04:31:02] Android check has been successfully loaded.
+[04:31:02]   Loading filterscript 'jobmap.amx'...
+[04:31:02]   Loading filterscript 'antiddos.amx'...
+[04:31:02]    Error: Function not registered: 'fileOpen'
+[04:31:02]    Error: Function not registered: 'fileSeek'
+[04:31:02]    Error: Function not registered: 'fileRead'
+[04:31:02]   Loading filterscript 'Anti_vpn.amx'...
+[04:31:02] 
+--------------------------------------
+[04:31:02]         Anti Proxy by Delet User         
+[04:31:02] --------------------------------------
+
+[04:31:02]   Loaded 4 filterscripts.
+
+[04:31:02]    Error: Function not registered: 'MEM_get_val'
+[04:31:02]    Error: Function not registered: 'MEM_get_size'
+[04:31:02]    Error: Function not registered: 'MEM_get_arr'
+[04:31:02]    Error: Function not registered: 'MEM_delete'
+[04:31:02]    Error: Function not registered: 'MEM_set_val'
+[04:31:02]    Error: Function not registered: 'MEM_new'
+[04:31:02]    Error: Function not registered: 'MEM_new_arr'
+[04:31:02]    Error: Function not registered: 'MEM_copy'
+[04:31:02] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[04:31:02] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[04:31:02]  
+[04:31:02] --------------------------------------
+[04:31:02]  Nex-AC loaded!
+[04:31:02]  Nex-AC version: 1.9.55
+[04:31:02]  Author: Nexius
+[04:31:02] --------------------------------------
+
+[04:31:02] EnableTirePopping() function is removed.
+[04:31:02] Couldn't connect to radio station database... server will continue to operate normally.
+[04:31:02] Legendary Roleplay
+[04:31:02] 398 objects loaded.
+[04:31:02] Number of vehicle models: 9
+[04:31:03] [Script] 0 atms loaded
+[04:31:03] [Script] 0 vendors loaded
+[04:31:03] [Script] 0 mdc loaded
+[04:31:03] [Script] 0 surgery room loaded
+[04:31:03] [Script] 4 Public Garage loaded
+[04:31:03] [Script] 0 houses loaded.
+[04:31:03] [Script] 0 garages loaded.
+[04:31:03] [Script] 1 businesses loaded.
+[04:31:03] [Script] 1 businesses loaded.
+[04:31:04] [Script] 0 entrances loaded.
+[04:31:04] [Script] 2 factions loaded.
+[04:31:04] [Script] 0 lands loaded.
+[04:31:04] [Script] 0 gangs loaded.
+[04:31:04] [Script] 0 points loaded.
+[04:31:04] [Script] 0 turfs loaded.
+[04:31:05] [MySQL] 0 textlabel loaded.
+[04:31:55] [query:p] from 157.51.17.141
+[04:31:55] [query:p] from 157.51.17.141
+[04:31:55] [query:i] from 157.51.17.141
+[04:31:59] [query:p] from 157.51.17.141
+[04:31:59] [query:p] from 157.51.17.141
+[04:31:59] [query:i] from 157.51.17.141
+[04:32:08] [connection] incoming connection: 157.51.17.141:53394 id: 0
+[04:32:09] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[04:32:09] [sv:dbg:network:connect] : player (0) assigned key (8d11339dd2d53f76)
+[04:32:09] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[04:32:09] Ambi_Da Just connected to the server.
+[04:32:09] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[04:32:09] [sv:dbg:network:receive] : player (0) identified (port:36198)
+[04:32:20] {25c712}Ambi Da has logged in as a .
+[04:32:29] [cmd] Ambi Da: [top]
+[04:35:32] [query:p] from 157.51.17.141
+[04:35:32] [query:p] from 157.51.17.141
+[04:35:32] [query:i] from 157.51.17.141
+[04:35:34] [query:p] from 157.51.17.141
+[04:35:34] [query:p] from 157.51.17.141
+[04:35:34] [query:i] from 157.51.17.141
+[04:35:38] [chat] [Ambi_Da]: ..
+[04:35:41] [cmd] Ambi Da: [stats]
+[04:51:51] [sv:dbg:network:connect] : disconnecting player (0) ...
+[04:51:51] Ambi_Da Just left the server.
+[04:51:51] [part] Ambi_Da has left the server (0:0)
+[04:55:06] [query:p] from 157.51.17.141
+[04:55:06] [query:p] from 157.51.17.141
+[04:55:06] [query:i] from 157.51.17.141
+[05:06:25] [query:i] from 157.51.17.141
+[05:06:25] [query:p] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:08:38] password = ""  (string)
+[05:08:38] 
+[05:08:38] Server Plugins
+[05:08:38] --------------
+[05:08:38]  Loading plugin: sampvoice.so
+[05:08:38] [sv:dbg:network:init] : module initializing...
+[05:08:38] [dbg:raknet:init] : module initializing...
+[05:08:38] [dbg:raknet:init] : module initialized
+[05:08:38] [sv:dbg:network:init] : module initialized
+[05:08:38] [sv:dbg:main:Load] : creating 4 work threads...
+[05:08:38]   ________                       .___        _________ .__                   .___  
+[05:08:38]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:08:38] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:08:38] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:08:38]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:08:38]         \/     \/                 \/     \/          \/                       \/  
+[05:08:38]    ___                __   __    _              
+[05:08:38]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:08:38]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:08:38]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:08:38]                   |_|                           
+[05:08:38]  -------------------------------------------    
+[05:08:38]   SampVoice by MOR for Garuda Cloud loaded      
+[05:08:38]  -------------------------------------------    
+[05:08:38]      ╒══════════════════════════════════╕       
+[05:08:38]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:08:38]      └──────────────────────────────────┘       
+[05:08:38]  -------------------------------------------    
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: sampvoice
+[05:08:38]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:08:38]  Loading plugin: crashdetect.so
+[05:08:38]   CrashDetect plugin 4.19.4
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: whirlpool.so
+[05:08:38]  
+[05:08:38]  ==================
+[05:08:38]  
+[05:08:38]   Whirlpool loaded
+[05:08:38]  
+[05:08:38]  ==================
+[05:08:38]  
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: pawncmd.so
+[05:08:38] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: sscanf.so
+[05:08:38] 
+
+[05:08:38]  ===============================
+
+[05:08:38]       sscanf plugin loaded.     
+
+[05:08:38]          Version:  2.8.3        
+
+[05:08:38]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:08:38]  ===============================
+
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: streamer.so
+[05:08:38] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: SKY.so
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: mysql_static.so
+[05:08:38]  >> plugin.mysql: R39-6 successfully loaded.
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: nativechecker.so
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: pawn-memory.so
+[05:08:38] ========================
+[05:08:38] = Memory access plugin =
+[05:08:38] =       Made by BigETI =
+[05:08:38] = Loaded!              =
+[05:08:38] ========================
+[05:08:38]   Loaded.
+[05:08:38]  Loading plugin: FileFunctions.so
+[05:08:38]   Loaded.
+[05:08:38]  Loaded 11 plugins.
+
+[05:08:38] 
+[05:08:38] Ban list
+[05:08:38] --------
+[05:08:38]  Loaded: samp.ban
+[05:08:38] 
+[05:08:38] 
+[05:08:38] Filterscripts
+[05:08:38] ---------------
+[05:08:38]   Loading filterscript 'android-check.amx'...
+[05:08:38] [sv:dbg:main:AmxLoad] : net game pointer (value:0x920ef80) received
+[05:08:38] [sv:dbg:network:bind] : voice server running on port 30001
+[05:08:38] Android check has been successfully loaded.
+[05:08:38]   Loading filterscript 'jobmap.amx'...
+[05:08:38]   Loading filterscript 'antiddos.amx'...
+[05:08:38]    Error: Function not registered: 'fileOpen'
+[05:08:38]    Error: Function not registered: 'fileSeek'
+[05:08:38]    Error: Function not registered: 'fileRead'
+[05:08:38]   Loading filterscript 'Anti_vpn.amx'...
+[05:08:38] 
+--------------------------------------
+[05:08:38]         Anti Proxy by Delet User         
+[05:08:38] --------------------------------------
+
+[05:08:38]   Loaded 4 filterscripts.
+
+[05:08:38]    Error: Function not registered: 'MEM_get_val'
+[05:08:38]    Error: Function not registered: 'MEM_get_size'
+[05:08:38]    Error: Function not registered: 'MEM_get_arr'
+[05:08:38]    Error: Function not registered: 'MEM_delete'
+[05:08:38]    Error: Function not registered: 'MEM_set_val'
+[05:08:38]    Error: Function not registered: 'MEM_new'
+[05:08:38]    Error: Function not registered: 'MEM_new_arr'
+[05:08:38]    Error: Function not registered: 'MEM_copy'
+[05:08:38] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:08:38] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:08:38]  
+[05:08:38] --------------------------------------
+[05:08:38]  Nex-AC loaded!
+[05:08:38]  Nex-AC version: 1.9.55
+[05:08:38]  Author: Nexius
+[05:08:38] --------------------------------------
+
+[05:08:38] EnableTirePopping() function is removed.
+[05:08:38] Couldn't connect to radio station database... server will continue to operate normally.
+[05:08:38] Legendary Roleplay
+[05:08:38] 398 objects loaded.
+[05:08:38] Number of vehicle models: 9
+[05:08:39] [Script] 0 atms loaded
+[05:08:39] [Script] 0 vendors loaded
+[05:08:39] [Script] 0 mdc loaded
+[05:08:39] [Script] 0 surgery room loaded
+[05:08:39] [Script] 4 Public Garage loaded
+[05:08:39] [Script] 0 houses loaded.
+[05:08:39] [Script] 0 garages loaded.
+[05:08:39] [Script] 1 businesses loaded.
+[05:08:39] [Script] 1 businesses loaded.
+[05:08:39] [Script] 0 entrances loaded.
+[05:08:39] [Script] 2 factions loaded.
+[05:08:40] [Script] 0 lands loaded.
+[05:08:40] [Script] 0 gangs loaded.
+[05:08:40] [Script] 0 points loaded.
+[05:08:40] [Script] 0 turfs loaded.
+[05:08:41] [MySQL] 0 textlabel loaded.
+[05:12:29] [query:p] from 157.51.17.141
+[05:12:29] [query:p] from 157.51.17.141
+[05:12:30] [query:i] from 157.51.17.141
+[05:15:11] [query:i] from 157.51.17.141
+[05:15:11] [query:p] from 157.51.17.141
+[05:15:11] [query:c] from 157.51.17.141
+[05:15:11] [query:r] from 157.51.17.141
+[05:15:11] [query:p] from 157.51.17.141
+[05:15:11] [query:p] from 157.51.17.141
+[05:15:13] [query:p] from 157.51.17.141
+[05:15:14] [query:i] from 157.51.17.141
+[05:15:14] [query:p] from 157.51.17.141
+[05:15:14] [query:c] from 157.51.17.141
+[05:15:14] [query:r] from 157.51.17.141
+[05:15:14] [query:p] from 157.51.17.141
+[05:15:15] [query:p] from 157.51.17.141
+[05:15:17] [query:p] from 157.51.17.141
+[05:15:18] [query:p] from 157.51.17.141
+[05:15:20] [query:p] from 157.51.17.141
+[05:15:40] [query:i] from 157.51.17.141
+[05:15:42] [connection] incoming connection: 157.51.17.141:54458 id: 0
+[05:15:43] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:15:43] [sv:dbg:network:connect] : player (0) assigned key (8d11339db0b609a1)
+[05:15:43] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:15:43] Ambi_Da Just connected to the server.
+[05:15:43] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:15:43] [sv:dbg:network:receive] : player (0) identified (port:54459)
+[05:15:46] [query:r] from 157.51.17.141
+[05:15:53] [query:i] from 157.51.17.141
+[05:16:04] {25c712}Ambi Da has logged in as a .
+[05:16:06] [query:i] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:16:11] password = ""  (string)
+[05:16:11] 
+[05:16:11] Server Plugins
+[05:16:11] --------------
+[05:16:11]  Loading plugin: sampvoice.so
+[05:16:11] [sv:dbg:network:init] : module initializing...
+[05:16:11] [dbg:raknet:init] : module initializing...
+[05:16:11] [dbg:raknet:init] : module initialized
+[05:16:11] [sv:dbg:network:init] : module initialized
+[05:16:11] [sv:dbg:main:Load] : creating 4 work threads...
+[05:16:11]   ________                       .___        _________ .__                   .___  
+[05:16:11]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:16:11] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:16:11] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:16:11]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:16:11]         \/     \/                 \/     \/          \/                       \/  
+[05:16:11]    ___                __   __    _              
+[05:16:11]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:16:11]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:16:11]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:16:11]                   |_|                           
+[05:16:11]  -------------------------------------------    
+[05:16:11]   SampVoice by MOR for Garuda Cloud loaded      
+[05:16:11]  -------------------------------------------    
+[05:16:11]      ╒══════════════════════════════════╕       
+[05:16:11]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:16:11]      └──────────────────────────────────┘       
+[05:16:11]  -------------------------------------------    
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: sampvoice
+[05:16:11]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:16:11]  Loading plugin: crashdetect.so
+[05:16:11]   CrashDetect plugin 4.19.4
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: whirlpool.so
+[05:16:11]  
+[05:16:11]  ==================
+[05:16:11]  
+[05:16:11]   Whirlpool loaded
+[05:16:11]  
+[05:16:11]  ==================
+[05:16:11]  
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: pawncmd.so
+[05:16:11] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: sscanf.so
+[05:16:11] 
+
+[05:16:11]  ===============================
+
+[05:16:11]       sscanf plugin loaded.     
+
+[05:16:11]          Version:  2.8.3        
+
+[05:16:11]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:16:11]  ===============================
+
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: streamer.so
+[05:16:11] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: SKY.so
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: mysql_static.so
+[05:16:11]  >> plugin.mysql: R39-6 successfully loaded.
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: nativechecker.so
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: pawn-memory.so
+[05:16:11] ========================
+[05:16:11] = Memory access plugin =
+[05:16:11] =       Made by BigETI =
+[05:16:11] = Loaded!              =
+[05:16:11] ========================
+[05:16:11]   Loaded.
+[05:16:11]  Loading plugin: FileFunctions.so
+[05:16:11]   Loaded.
+[05:16:11]  Loaded 11 plugins.
+
+[05:16:11] 
+[05:16:11] Ban list
+[05:16:11] --------
+[05:16:11]  Loaded: samp.ban
+[05:16:11] 
+[05:16:11] 
+[05:16:11] Filterscripts
+[05:16:11] ---------------
+[05:16:11]   Loading filterscript 'android-check.amx'...
+[05:16:11] [sv:dbg:main:AmxLoad] : net game pointer (value:0x939bf80) received
+[05:16:11] [sv:dbg:network:bind] : voice server running on port 30001
+[05:16:11] Android check has been successfully loaded.
+[05:16:11]   Loading filterscript 'jobmap.amx'...
+[05:16:11]   Loading filterscript 'antiddos.amx'...
+[05:16:11]    Error: Function not registered: 'fileOpen'
+[05:16:11]    Error: Function not registered: 'fileSeek'
+[05:16:11]    Error: Function not registered: 'fileRead'
+[05:16:11]   Loading filterscript 'Anti_vpn.amx'...
+[05:16:11] 
+--------------------------------------
+[05:16:11]         Anti Proxy by Delet User         
+[05:16:11] --------------------------------------
+
+[05:16:11]   Loaded 4 filterscripts.
+
+[05:16:11]    Error: Function not registered: 'MEM_get_val'
+[05:16:11]    Error: Function not registered: 'MEM_get_size'
+[05:16:11]    Error: Function not registered: 'MEM_get_arr'
+[05:16:11]    Error: Function not registered: 'MEM_delete'
+[05:16:11]    Error: Function not registered: 'MEM_set_val'
+[05:16:11]    Error: Function not registered: 'MEM_new'
+[05:16:11]    Error: Function not registered: 'MEM_new_arr'
+[05:16:11]    Error: Function not registered: 'MEM_copy'
+[05:16:11] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:16:11] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:16:11]  
+[05:16:11] --------------------------------------
+[05:16:11]  Nex-AC loaded!
+[05:16:11]  Nex-AC version: 1.9.55
+[05:16:11]  Author: Nexius
+[05:16:11] --------------------------------------
+
+[05:16:11] EnableTirePopping() function is removed.
+[05:16:11] Couldn't connect to radio station database... server will continue to operate normally.
+[05:16:11] Legendary Roleplay
+[05:16:11] 398 objects loaded.
+[05:16:11] Number of vehicle models: 9
+[05:16:11] [Script] 0 atms loaded
+[05:16:11] [Script] 0 vendors loaded
+[05:16:11] [Script] 0 mdc loaded
+[05:16:11] [Script] 0 surgery room loaded
+[05:16:11] [Script] 4 Public Garage loaded
+[05:16:11] [Script] 0 houses loaded.
+[05:16:11] [Script] 0 garages loaded.
+[05:16:11] [Script] 1 businesses loaded.
+[05:16:11] [Script] 1 businesses loaded.
+[05:16:11] [Script] 0 entrances loaded.
+[05:16:11] [Script] 2 factions loaded.
+[05:16:11] [Script] 0 lands loaded.
+[05:16:11] [Script] 0 gangs loaded.
+[05:16:11] [Script] 0 points loaded.
+[05:16:11] [Script] 0 turfs loaded.
+[05:16:11] [MySQL] 0 textlabel loaded.
+[05:16:19] [query:i] from 157.51.17.141
+[05:16:21] [connection] incoming connection: 157.51.17.141:50379 id: 0
+[05:16:21] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:16:21] [sv:dbg:network:connect] : player (0) assigned key (8d11339d8015de62)
+[05:16:21] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:16:21] Ambi_Da Just connected to the server.
+[05:16:21] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:16:28] [query:p] from 157.51.17.141
+[05:16:28] [query:i] from 157.51.17.141
+[05:16:28] [query:p] from 157.51.17.141
+[05:16:28] [query:c] from 157.51.17.141
+[05:16:28] [query:r] from 157.51.17.141
+[05:16:28] [query:p] from 157.51.17.141
+[05:16:35] [sv:dbg:network:connect] : disconnecting player (0) ...
+[05:16:35] Ambi_Da Just left the server.
+[05:16:35] [part] Ambi_Da has left the server (0:0)
+[05:16:39] [query:p] from 157.51.17.141
+[05:16:40] [query:p] from 157.51.17.141
+[05:16:56] [query:i] from 157.51.17.141
+[05:17:09] [query:i] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:17:15] password = ""  (string)
+[05:17:15] 
+[05:17:15] Server Plugins
+[05:17:15] --------------
+[05:17:15]  Loading plugin: sampvoice.so
+[05:17:15] [sv:dbg:network:init] : module initializing...
+[05:17:15] [dbg:raknet:init] : module initializing...
+[05:17:15] [dbg:raknet:init] : module initialized
+[05:17:15] [sv:dbg:network:init] : module initialized
+[05:17:15] [sv:dbg:main:Load] : creating 4 work threads...
+[05:17:15]   ________                       .___        _________ .__                   .___  
+[05:17:15]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:17:15] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:17:15] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:17:15]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:17:15]         \/     \/                 \/     \/          \/                       \/  
+[05:17:15]    ___                __   __    _              
+[05:17:15]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:17:15]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:17:15]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:17:15]                   |_|                           
+[05:17:15]  -------------------------------------------    
+[05:17:15]   SampVoice by MOR for Garuda Cloud loaded      
+[05:17:15]  -------------------------------------------    
+[05:17:15]      ╒══════════════════════════════════╕       
+[05:17:15]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:17:15]      └──────────────────────────────────┘       
+[05:17:15]  -------------------------------------------    
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: sampvoice
+[05:17:15]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:17:15]  Loading plugin: crashdetect.so
+[05:17:15]   CrashDetect plugin 4.19.4
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: whirlpool.so
+[05:17:15]  
+[05:17:15]  ==================
+[05:17:15]  
+[05:17:15]   Whirlpool loaded
+[05:17:15]  
+[05:17:15]  ==================
+[05:17:15]  
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: pawncmd.so
+[05:17:15] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: sscanf.so
+[05:17:15] 
+
+[05:17:15]  ===============================
+
+[05:17:15]       sscanf plugin loaded.     
+
+[05:17:15]          Version:  2.8.3        
+
+[05:17:15]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:17:15]  ===============================
+
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: streamer.so
+[05:17:15] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: SKY.so
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: mysql_static.so
+[05:17:15]  >> plugin.mysql: R39-6 successfully loaded.
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: nativechecker.so
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: pawn-memory.so
+[05:17:15] ========================
+[05:17:15] = Memory access plugin =
+[05:17:15] =       Made by BigETI =
+[05:17:15] = Loaded!              =
+[05:17:15] ========================
+[05:17:15]   Loaded.
+[05:17:15]  Loading plugin: FileFunctions.so
+[05:17:15]   Loaded.
+[05:17:15]  Loaded 11 plugins.
+
+[05:17:15] 
+[05:17:15] Ban list
+[05:17:15] --------
+[05:17:15]  Loaded: samp.ban
+[05:17:15] 
+[05:17:15] 
+[05:17:15] Filterscripts
+[05:17:15] ---------------
+[05:17:15]   Loading filterscript 'android-check.amx'...
+[05:17:15] [sv:dbg:main:AmxLoad] : net game pointer (value:0x9d09f80) received
+[05:17:15] [sv:dbg:network:bind] : voice server running on port 30001
+[05:17:15] Android check has been successfully loaded.
+[05:17:15]   Loading filterscript 'jobmap.amx'...
+[05:17:15]   Loading filterscript 'antiddos.amx'...
+[05:17:15]    Error: Function not registered: 'fileOpen'
+[05:17:15]    Error: Function not registered: 'fileSeek'
+[05:17:15]    Error: Function not registered: 'fileRead'
+[05:17:15]   Loading filterscript 'Anti_vpn.amx'...
+[05:17:15] 
+--------------------------------------
+[05:17:15]         Anti Proxy by Delet User         
+[05:17:15] --------------------------------------
+
+[05:17:15]   Loaded 4 filterscripts.
+
+[05:17:15]    Error: Function not registered: 'MEM_get_val'
+[05:17:15]    Error: Function not registered: 'MEM_get_size'
+[05:17:15]    Error: Function not registered: 'MEM_get_arr'
+[05:17:15]    Error: Function not registered: 'MEM_delete'
+[05:17:15]    Error: Function not registered: 'MEM_set_val'
+[05:17:15]    Error: Function not registered: 'MEM_new'
+[05:17:15]    Error: Function not registered: 'MEM_new_arr'
+[05:17:15]    Error: Function not registered: 'MEM_copy'
+[05:17:15] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:17:15] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:17:15]  
+[05:17:15] --------------------------------------
+[05:17:15]  Nex-AC loaded!
+[05:17:15]  Nex-AC version: 1.9.55
+[05:17:15]  Author: Nexius
+[05:17:15] --------------------------------------
+
+[05:17:15] EnableTirePopping() function is removed.
+[05:17:15] Couldn't connect to radio station database... server will continue to operate normally.
+[05:17:15] Legendary Roleplay
+[05:17:15] 398 objects loaded.
+[05:17:15] Number of vehicle models: 9
+[05:17:15] [Script] 0 atms loaded
+[05:17:15] [Script] 0 vendors loaded
+[05:17:15] [Script] 0 mdc loaded
+[05:17:15] [Script] 0 surgery room loaded
+[05:17:15] [Script] 4 Public Garage loaded
+[05:17:15] [Script] 0 houses loaded.
+[05:17:15] [Script] 0 garages loaded.
+[05:17:15] [Script] 1 businesses loaded.
+[05:17:15] [Script] 1 businesses loaded.
+[05:17:15] [Script] 0 entrances loaded.
+[05:17:15] [Script] 2 factions loaded.
+[05:17:15] [Script] 0 lands loaded.
+[05:17:15] [Script] 0 gangs loaded.
+[05:17:15] [Script] 0 points loaded.
+[05:17:15] [Script] 0 turfs loaded.
+[05:17:15] [MySQL] 0 textlabel loaded.
+[05:17:22] [query:i] from 157.51.17.141
+[05:17:35] [query:i] from 157.51.17.141
+[05:17:39] [connection] incoming connection: 157.51.17.141:50993 id: 0
+[05:17:39] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:17:39] [sv:dbg:network:connect] : player (0) assigned key (8d11339defbef4c6)
+[05:17:39] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:17:39] Ambi_Da Just connected to the server.
+[05:17:39] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:17:42] [sv:dbg:network:receive] : player (0) identified (port:54286)
+[05:17:45] [query:r] from 157.51.17.141
+[05:17:48] [query:i] from 157.51.17.141
+[05:18:01] [query:i] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:18:08] password = ""  (string)
+[05:18:08] 
+[05:18:08] Server Plugins
+[05:18:08] --------------
+[05:18:08]  Loading plugin: sampvoice.so
+[05:18:08] [sv:dbg:network:init] : module initializing...
+[05:18:08] [dbg:raknet:init] : module initializing...
+[05:18:08] [dbg:raknet:init] : module initialized
+[05:18:08] [sv:dbg:network:init] : module initialized
+[05:18:08] [sv:dbg:main:Load] : creating 4 work threads...
+[05:18:08]   ________                       .___        _________ .__                   .___  
+[05:18:08]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:18:08] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:18:08] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:18:08]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:18:08]         \/     \/                 \/     \/          \/                       \/  
+[05:18:08]    ___                __   __    _              
+[05:18:08]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:18:08]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:18:08]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:18:08]                   |_|                           
+[05:18:08]  -------------------------------------------    
+[05:18:08]   SampVoice by MOR for Garuda Cloud loaded      
+[05:18:08]  -------------------------------------------    
+[05:18:08]      ╒══════════════════════════════════╕       
+[05:18:08]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:18:08]      └──────────────────────────────────┘       
+[05:18:08]  -------------------------------------------    
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: sampvoice
+[05:18:08]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:18:08]  Loading plugin: crashdetect.so
+[05:18:08]   CrashDetect plugin 4.19.4
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: whirlpool.so
+[05:18:08]  
+[05:18:08]  ==================
+[05:18:08]  
+[05:18:08]   Whirlpool loaded
+[05:18:08]  
+[05:18:08]  ==================
+[05:18:08]  
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: pawncmd.so
+[05:18:08] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: sscanf.so
+[05:18:08] 
+
+[05:18:08]  ===============================
+
+[05:18:08]       sscanf plugin loaded.     
+
+[05:18:08]          Version:  2.8.3        
+
+[05:18:08]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:18:08]  ===============================
+
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: streamer.so
+[05:18:08] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: SKY.so
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: mysql_static.so
+[05:18:08]  >> plugin.mysql: R39-6 successfully loaded.
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: nativechecker.so
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: pawn-memory.so
+[05:18:08] ========================
+[05:18:08] = Memory access plugin =
+[05:18:08] =       Made by BigETI =
+[05:18:08] = Loaded!              =
+[05:18:08] ========================
+[05:18:08]   Loaded.
+[05:18:08]  Loading plugin: FileFunctions.so
+[05:18:08]   Loaded.
+[05:18:08]  Loaded 11 plugins.
+
+[05:18:08] 
+[05:18:08] Ban list
+[05:18:08] --------
+[05:18:08]  Loaded: samp.ban
+[05:18:08] 
+[05:18:08] 
+[05:18:08] Filterscripts
+[05:18:08] ---------------
+[05:18:08]   Loading filterscript 'android-check.amx'...
+[05:18:08] [sv:dbg:main:AmxLoad] : net game pointer (value:0x87b2f80) received
+[05:18:08] [sv:dbg:network:bind] : voice server running on port 30001
+[05:18:08] Android check has been successfully loaded.
+[05:18:08]   Loading filterscript 'jobmap.amx'...
+[05:18:08]   Loading filterscript 'antiddos.amx'...
+[05:18:08]    Error: Function not registered: 'fileOpen'
+[05:18:08]    Error: Function not registered: 'fileSeek'
+[05:18:08]    Error: Function not registered: 'fileRead'
+[05:18:08]   Loading filterscript 'Anti_vpn.amx'...
+[05:18:08] 
+--------------------------------------
+[05:18:08]         Anti Proxy by Delet User         
+[05:18:08] --------------------------------------
+
+[05:18:08]   Loaded 4 filterscripts.
+
+[05:18:08]    Error: Function not registered: 'MEM_get_val'
+[05:18:08]    Error: Function not registered: 'MEM_get_size'
+[05:18:08]    Error: Function not registered: 'MEM_get_arr'
+[05:18:08]    Error: Function not registered: 'MEM_delete'
+[05:18:08]    Error: Function not registered: 'MEM_set_val'
+[05:18:08]    Error: Function not registered: 'MEM_new'
+[05:18:08]    Error: Function not registered: 'MEM_new_arr'
+[05:18:08]    Error: Function not registered: 'MEM_copy'
+[05:18:08] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:18:08] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:18:08]  
+[05:18:08] --------------------------------------
+[05:18:08]  Nex-AC loaded!
+[05:18:08]  Nex-AC version: 1.9.55
+[05:18:08]  Author: Nexius
+[05:18:08] --------------------------------------
+
+[05:18:08] EnableTirePopping() function is removed.
+[05:18:08] Couldn't connect to radio station database... server will continue to operate normally.
+[05:18:08] Legendary Roleplay
+[05:18:08] 398 objects loaded.
+[05:18:08] Number of vehicle models: 9
+[05:18:08] [Script] 0 atms loaded
+[05:18:08] [Script] 0 vendors loaded
+[05:18:08] [Script] 0 mdc loaded
+[05:18:08] [Script] 0 surgery room loaded
+[05:18:08] [Script] 4 Public Garage loaded
+[05:18:08] [Script] 0 houses loaded.
+[05:18:08] [Script] 0 garages loaded.
+[05:18:08] [Script] 1 businesses loaded.
+[05:18:08] [Script] 1 businesses loaded.
+[05:18:08] [Script] 0 entrances loaded.
+[05:18:08] [Script] 2 factions loaded.
+[05:18:08] [Script] 0 lands loaded.
+[05:18:08] [Script] 0 gangs loaded.
+[05:18:08] [Script] 0 points loaded.
+[05:18:08] [Script] 0 turfs loaded.
+[05:18:08] [MySQL] 0 textlabel loaded.
+[05:18:14] [query:i] from 157.51.17.141
+[05:18:27] [query:i] from 157.51.17.141
+[05:18:31] [connection] incoming connection: 157.51.17.141:61805 id: 0
+[05:18:31] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:18:31] [sv:dbg:network:connect] : player (0) assigned key (8d11339d451d08eb)
+[05:18:31] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:18:31] Ambi_Da Just connected to the server.
+[05:18:31] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:18:32] [sv:dbg:network:receive] : player (0) identified (port:54286)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:18:37] password = ""  (string)
+[05:18:37] 
+[05:18:37] Server Plugins
+[05:18:37] --------------
+[05:18:37]  Loading plugin: sampvoice.so
+[05:18:37] [sv:dbg:network:init] : module initializing...
+[05:18:37] [dbg:raknet:init] : module initializing...
+[05:18:37] [dbg:raknet:init] : module initialized
+[05:18:37] [sv:dbg:network:init] : module initialized
+[05:18:37] [sv:dbg:main:Load] : creating 4 work threads...
+[05:18:37]   ________                       .___        _________ .__                   .___  
+[05:18:37]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:18:37] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:18:37] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:18:37]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:18:37]         \/     \/                 \/     \/          \/                       \/  
+[05:18:37]    ___                __   __    _              
+[05:18:37]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:18:37]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:18:37]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:18:37]                   |_|                           
+[05:18:37]  -------------------------------------------    
+[05:18:37]   SampVoice by MOR for Garuda Cloud loaded      
+[05:18:37]  -------------------------------------------    
+[05:18:37]      ╒══════════════════════════════════╕       
+[05:18:37]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:18:37]      └──────────────────────────────────┘       
+[05:18:37]  -------------------------------------------    
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: sampvoice
+[05:18:37]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:18:37]  Loading plugin: crashdetect.so
+[05:18:37]   CrashDetect plugin 4.19.4
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: whirlpool.so
+[05:18:37]  
+[05:18:37]  ==================
+[05:18:37]  
+[05:18:37]   Whirlpool loaded
+[05:18:37]  
+[05:18:37]  ==================
+[05:18:37]  
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: pawncmd.so
+[05:18:37] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: sscanf.so
+[05:18:37] 
+
+[05:18:37]  ===============================
+
+[05:18:37]       sscanf plugin loaded.     
+
+[05:18:37]          Version:  2.8.3        
+
+[05:18:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:18:37]  ===============================
+
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: streamer.so
+[05:18:37] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: SKY.so
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: mysql_static.so
+[05:18:37]  >> plugin.mysql: R39-6 successfully loaded.
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: nativechecker.so
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: pawn-memory.so
+[05:18:37] ========================
+[05:18:37] = Memory access plugin =
+[05:18:37] =       Made by BigETI =
+[05:18:37] = Loaded!              =
+[05:18:37] ========================
+[05:18:37]   Loaded.
+[05:18:37]  Loading plugin: FileFunctions.so
+[05:18:37]   Loaded.
+[05:18:37]  Loaded 11 plugins.
+
+[05:18:37] 
+[05:18:37] Ban list
+[05:18:37] --------
+[05:18:37]  Loaded: samp.ban
+[05:18:37] 
+[05:18:37] 
+[05:18:37] Filterscripts
+[05:18:37] ---------------
+[05:18:37]   Loading filterscript 'android-check.amx'...
+[05:18:37] [sv:dbg:main:AmxLoad] : net game pointer (value:0xa0bdf80) received
+[05:18:37] [sv:dbg:network:bind] : voice server running on port 30001
+[05:18:37] Android check has been successfully loaded.
+[05:18:37]   Loading filterscript 'jobmap.amx'...
+[05:18:37]   Loading filterscript 'antiddos.amx'...
+[05:18:37]    Error: Function not registered: 'fileOpen'
+[05:18:37]    Error: Function not registered: 'fileSeek'
+[05:18:37]    Error: Function not registered: 'fileRead'
+[05:18:37]   Loading filterscript 'Anti_vpn.amx'...
+[05:18:37] 
+--------------------------------------
+[05:18:37]         Anti Proxy by Delet User         
+[05:18:37] --------------------------------------
+
+[05:18:37]   Loaded 4 filterscripts.
+
+[05:18:37]    Error: Function not registered: 'MEM_get_val'
+[05:18:37]    Error: Function not registered: 'MEM_get_size'
+[05:18:37]    Error: Function not registered: 'MEM_get_arr'
+[05:18:37]    Error: Function not registered: 'MEM_delete'
+[05:18:37]    Error: Function not registered: 'MEM_set_val'
+[05:18:37]    Error: Function not registered: 'MEM_new'
+[05:18:37]    Error: Function not registered: 'MEM_new_arr'
+[05:18:37]    Error: Function not registered: 'MEM_copy'
+[05:18:37] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:18:37] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:18:37]  
+[05:18:37] --------------------------------------
+[05:18:37]  Nex-AC loaded!
+[05:18:37]  Nex-AC version: 1.9.55
+[05:18:37]  Author: Nexius
+[05:18:37] --------------------------------------
+
+[05:18:37] EnableTirePopping() function is removed.
+[05:18:37] Couldn't connect to radio station database... server will continue to operate normally.
+[05:18:37] Legendary Roleplay
+[05:18:37] 398 objects loaded.
+[05:18:37] Number of vehicle models: 9
+[05:18:37] [Script] 0 atms loaded
+[05:18:37] [Script] 0 vendors loaded
+[05:18:37] [Script] 0 mdc loaded
+[05:18:37] [Script] 0 surgery room loaded
+[05:18:37] [Script] 4 Public Garage loaded
+[05:18:37] [Script] 0 houses loaded.
+[05:18:37] [Script] 0 garages loaded.
+[05:18:37] [Script] 1 businesses loaded.
+[05:18:37] [Script] 1 businesses loaded.
+[05:18:37] [Script] 0 entrances loaded.
+[05:18:37] [Script] 2 factions loaded.
+[05:18:37] [Script] 0 lands loaded.
+[05:18:37] [Script] 0 gangs loaded.
+[05:18:37] [Script] 0 points loaded.
+[05:18:37] [Script] 0 turfs loaded.
+[05:18:37] [MySQL] 0 textlabel loaded.
+[05:18:40] [query:i] from 157.51.17.141
+[05:18:48] [connection] incoming connection: 157.51.17.141:63027 id: 0
+[05:18:49] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:18:49] [sv:dbg:network:connect] : player (0) assigned key (8d11339d0c0ddf17)
+[05:18:49] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:18:49] Ambi_Da Just connected to the server.
+[05:18:49] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:18:49] [sv:dbg:network:receive] : player (0) identified (port:54286)
+[05:18:53] [query:i] from 157.51.17.141
+[05:19:05] {25c712}Ambi Da has logged in as a .
+[05:19:07] [query:i] from 157.51.17.141
+[05:19:20] [query:i] from 157.51.17.141
+[05:19:33] [query:i] from 157.51.17.141
+[05:19:46] [query:i] from 157.51.17.141
+[05:19:59] [query:i] from 157.51.17.141
+[05:20:12] [query:i] from 157.51.17.141
+[05:20:25] [query:i] from 157.51.17.141
+[05:20:38] [query:i] from 157.51.17.141
+[05:20:51] [query:i] from 157.51.17.141
+[05:21:05] [query:i] from 157.51.17.141
+[05:21:18] [query:i] from 157.51.17.141
+[05:21:31] [query:i] from 157.51.17.141
+[05:21:44] [query:i] from 157.51.17.141
+[05:21:57] [query:i] from 157.51.17.141
+[05:22:10] [query:i] from 157.51.17.141
+[05:22:23] [query:i] from 157.51.17.141
+[05:22:36] [query:i] from 157.51.17.141
+[05:22:50] [query:i] from 157.51.17.141
+[05:23:03] [query:i] from 157.51.17.141
+[05:23:16] [query:i] from 157.51.17.141
+[05:23:29] [query:i] from 157.51.17.141
+[05:23:42] [query:i] from 157.51.17.141
+[05:23:55] [query:i] from 157.51.17.141
+[05:24:08] [query:i] from 157.51.17.141
+[05:24:21] [query:i] from 157.51.17.141
+[05:24:35] [query:i] from 157.51.17.141
+[05:24:48] [query:i] from 157.51.17.141
+[05:25:01] [query:i] from 157.51.17.141
+[05:25:14] [query:i] from 157.51.17.141
+[05:25:27] [query:i] from 157.51.17.141
+[05:25:40] [query:i] from 157.51.17.141
+[05:25:53] [query:i] from 157.51.17.141
+[05:26:06] [query:i] from 157.51.17.141
+[05:26:20] [query:i] from 157.51.17.141
+[05:26:33] [query:i] from 157.51.17.141
+[05:26:46] [query:i] from 157.51.17.141
+[05:26:59] [query:i] from 157.51.17.141
+[05:27:12] [query:i] from 157.51.17.141
+[05:27:25] [query:i] from 157.51.17.141
+[05:27:38] [query:i] from 157.51.17.141
+[05:27:51] [query:i] from 157.51.17.141
+[05:28:05] [query:i] from 157.51.17.141
+[05:28:18] [query:i] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:28:23] password = ""  (string)
+[05:28:23] 
+[05:28:23] Server Plugins
+[05:28:23] --------------
+[05:28:23]  Loading plugin: sampvoice.so
+[05:28:23] [sv:dbg:network:init] : module initializing...
+[05:28:23] [dbg:raknet:init] : module initializing...
+[05:28:23] [dbg:raknet:init] : module initialized
+[05:28:23] [sv:dbg:network:init] : module initialized
+[05:28:23] [sv:dbg:main:Load] : creating 4 work threads...
+[05:28:23]   ________                       .___        _________ .__                   .___  
+[05:28:23]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:28:23] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:28:23] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:28:23]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:28:23]         \/     \/                 \/     \/          \/                       \/  
+[05:28:23]    ___                __   __    _              
+[05:28:23]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:28:23]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:28:23]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:28:23]                   |_|                           
+[05:28:23]  -------------------------------------------    
+[05:28:23]   SampVoice by MOR for Garuda Cloud loaded      
+[05:28:23]  -------------------------------------------    
+[05:28:23]      ╒══════════════════════════════════╕       
+[05:28:23]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:28:23]      └──────────────────────────────────┘       
+[05:28:23]  -------------------------------------------    
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: sampvoice
+[05:28:23]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:28:23]  Loading plugin: crashdetect.so
+[05:28:23]   CrashDetect plugin 4.19.4
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: whirlpool.so
+[05:28:23]  
+[05:28:23]  ==================
+[05:28:23]  
+[05:28:23]   Whirlpool loaded
+[05:28:23]  
+[05:28:23]  ==================
+[05:28:23]  
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: pawncmd.so
+[05:28:23] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: sscanf.so
+[05:28:23] 
+
+[05:28:23]  ===============================
+
+[05:28:23]       sscanf plugin loaded.     
+
+[05:28:23]          Version:  2.8.3        
+
+[05:28:23]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:28:23]  ===============================
+
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: streamer.so
+[05:28:23] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: SKY.so
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: mysql_static.so
+[05:28:23]  >> plugin.mysql: R39-6 successfully loaded.
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: nativechecker.so
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: pawn-memory.so
+[05:28:23] ========================
+[05:28:23] = Memory access plugin =
+[05:28:23] =       Made by BigETI =
+[05:28:23] = Loaded!              =
+[05:28:23] ========================
+[05:28:23]   Loaded.
+[05:28:23]  Loading plugin: FileFunctions.so
+[05:28:23]   Loaded.
+[05:28:23]  Loaded 11 plugins.
+
+[05:28:23] 
+[05:28:23] Ban list
+[05:28:23] --------
+[05:28:23]  Loaded: samp.ban
+[05:28:23] 
+[05:28:23] 
+[05:28:23] Filterscripts
+[05:28:23] ---------------
+[05:28:23]   Loading filterscript 'android-check.amx'...
+[05:28:23] [sv:dbg:main:AmxLoad] : net game pointer (value:0x9ba6f80) received
+[05:28:23] [sv:dbg:network:bind] : voice server running on port 30001
+[05:28:23] Android check has been successfully loaded.
+[05:28:23]   Loading filterscript 'jobmap.amx'...
+[05:28:23]   Loading filterscript 'antiddos.amx'...
+[05:28:23]    Error: Function not registered: 'fileOpen'
+[05:28:23]    Error: Function not registered: 'fileSeek'
+[05:28:23]    Error: Function not registered: 'fileRead'
+[05:28:23]   Loading filterscript 'Anti_vpn.amx'...
+[05:28:23] 
+--------------------------------------
+[05:28:23]         Anti Proxy by Delet User         
+[05:28:23] --------------------------------------
+
+[05:28:23]   Loaded 4 filterscripts.
+
+[05:28:23]    Error: Function not registered: 'MEM_get_val'
+[05:28:23]    Error: Function not registered: 'MEM_get_size'
+[05:28:23]    Error: Function not registered: 'MEM_get_arr'
+[05:28:23]    Error: Function not registered: 'MEM_delete'
+[05:28:23]    Error: Function not registered: 'MEM_set_val'
+[05:28:23]    Error: Function not registered: 'MEM_new'
+[05:28:23]    Error: Function not registered: 'MEM_new_arr'
+[05:28:23]    Error: Function not registered: 'MEM_copy'
+[05:28:23] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:28:23] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:28:23]  
+[05:28:23] --------------------------------------
+[05:28:23]  Nex-AC loaded!
+[05:28:23]  Nex-AC version: 1.9.55
+[05:28:23]  Author: Nexius
+[05:28:23] --------------------------------------
+
+[05:28:23] EnableTirePopping() function is removed.
+[05:28:23] Couldn't connect to radio station database... server will continue to operate normally.
+[05:28:23] Legendary Roleplay
+[05:28:23] 398 objects loaded.
+[05:28:23] Number of vehicle models: 9
+[05:28:23] [Script] 0 atms loaded
+[05:28:23] [Script] 0 vendors loaded
+[05:28:23] [Script] 0 mdc loaded
+[05:28:23] [Script] 0 surgery room loaded
+[05:28:23] [Script] 4 Public Garage loaded
+[05:28:23] [Script] 0 houses loaded.
+[05:28:23] [Script] 0 garages loaded.
+[05:28:23] [Script] 1 businesses loaded.
+[05:28:23] [Script] 1 businesses loaded.
+[05:28:23] [Script] 0 entrances loaded.
+[05:28:23] [Script] 2 factions loaded.
+[05:28:23] [Script] 0 lands loaded.
+[05:28:23] [Script] 0 gangs loaded.
+[05:28:23] [Script] 0 points loaded.
+[05:28:23] [Script] 0 turfs loaded.
+[05:28:23] [MySQL] 0 textlabel loaded.
+[05:28:23] [Script] 0 actor loaded
+[05:28:23] [Script] 0 safezones loaded
+[05:28:31] [query:i] from 157.51.17.141
+[05:28:36] [connection] incoming connection: 157.51.17.141:58527 id: 0
+[05:28:37] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:28:37] [sv:dbg:network:connect] : player (0) assigned key (8d11339dcc533a9b)
+[05:28:37] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:28:37] Ambi_Da Just connected to the server.
+[05:28:37] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:28:38] [sv:dbg:network:receive] : player (0) identified (port:54286)
+[05:28:44] [query:i] from 157.51.17.141
+[05:28:57] [query:i] from 157.51.17.141
+[05:29:10] [query:i] from 157.51.17.141
+[05:29:23] [query:i] from 157.51.17.141
+[05:29:27] {25c712}Ambi Da has logged in as a .
+[05:29:36] [query:i] from 157.51.17.141
+[05:29:49] [query:i] from 157.51.17.141
+[05:30:02] [query:i] from 157.51.17.141
+[05:30:15] [query:i] from 157.51.17.141
+[05:30:28] [query:i] from 157.51.17.141
+[05:30:42] [query:i] from 157.51.17.141
+[05:30:55] [query:i] from 157.51.17.141
+[05:31:08] [query:i] from 157.51.17.141
+[05:31:21] [query:i] from 157.51.17.141
+[05:31:34] [query:i] from 157.51.17.141
+[05:31:47] [query:i] from 157.51.17.141
+[05:32:00] [query:i] from 157.51.17.141
+[05:32:13] [query:i] from 157.51.17.141
+[05:32:14] [query:i] from 31.59.58.21
+[05:32:14] [query:r] from 31.59.58.21
+[05:32:14] [query:p] from 223.237.178.46
+[05:32:14] [query:i] from 223.237.178.46
+[05:32:23] [connection] incoming connection: 223.237.178.46:47747 id: 1
+[05:32:23] [sv:dbg:network:connect] : connecting player (1) with address (223.237.178.46) ...
+[05:32:23] [sv:dbg:network:connect] : player (1) assigned key (2eb2eddfb26b9339)
+[05:32:23] [join] Anjaan_Shivan has joined the server (1:223.237.178.46)
+[05:32:23] Anjaan_Shivan Just connected to the server.
+[05:32:23] Anjaan_Shivan has joined the server {FFFFFF}[IP: 223.237.178.46]
+[05:32:24] [sv:dbg:network:receive] : player (1) identified (port:43382)
+[05:32:27] [query:i] from 157.51.17.141
+[05:32:40] [query:i] from 157.51.17.141
+[05:32:40] AdmWarning: Anjaan Shivan tried to login with a locked account.
+[05:32:41] [sv:dbg:network:connect] : disconnecting player (1) ...
+[05:32:41] Anjaan_Shivan Just left the server.
+[05:32:41] [part] Anjaan_Shivan has left the server (1:2)
+[05:32:53] [query:i] from 157.51.17.141
+[05:33:06] [query:i] from 157.51.17.141
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[05:33:20] password = ""  (string)
+[05:33:20] 
+[05:33:20] Server Plugins
+[05:33:20] --------------
+[05:33:20]  Loading plugin: sampvoice.so
+[05:33:20] [sv:dbg:network:init] : module initializing...
+[05:33:20] [dbg:raknet:init] : module initializing...
+[05:33:20] [dbg:raknet:init] : module initialized
+[05:33:20] [sv:dbg:network:init] : module initialized
+[05:33:20] [sv:dbg:main:Load] : creating 4 work threads...
+[05:33:20]   ________                       .___        _________ .__                   .___  
+[05:33:20]  /  _____/_____ _______ __ __  __| _/____    \_   ___ \|  |   ____  __ __  __| _/  
+[05:33:20] /   \  ___\__  \\_  __ \  |  \/ __ |\__  \   /    \  \/|  |  /  _ \|  |  \/ __ |  
+[05:33:20] \    \_\  \/ __ \|  | \/  |  / /_/ | / __ \_ \     \___|  |_(  <_> )  |  / /_/ |  
+[05:33:20]  \______  (____  /__|  |____/\____ |(____  /  \______  /____/\____/|____/\____ |  
+[05:33:20]         \/     \/                 \/     \/          \/                       \/  
+[05:33:20]    ___                __   __    _              
+[05:33:20]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[05:33:20]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[05:33:20]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[05:33:20]                   |_|                           
+[05:33:20]  -------------------------------------------    
+[05:33:20]   SampVoice by MOR for Garuda Cloud loaded      
+[05:33:20]  -------------------------------------------    
+[05:33:20]      ╒══════════════════════════════════╕       
+[05:33:20]      │THE PLUGIN POWERED BY GARUDA CLOUD│       
+[05:33:20]      └──────────────────────────────────┘       
+[05:33:20]  -------------------------------------------    
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: sampvoice
+[05:33:20]   Failed (plugins/sampvoice: cannot open shared object file: No such file or directory)
+[05:33:20]  Loading plugin: crashdetect.so
+[05:33:20]   CrashDetect plugin 4.19.4
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: whirlpool.so
+[05:33:20]  
+[05:33:20]  ==================
+[05:33:20]  
+[05:33:20]   Whirlpool loaded
+[05:33:20]  
+[05:33:20]  ==================
+[05:33:20]  
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: pawncmd.so
+[05:33:20] Pawn.CMD plugin v3.2.0 by urShadow has been loaded
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: sscanf.so
+[05:33:20] 
+
+[05:33:20]  ===============================
+
+[05:33:20]       sscanf plugin loaded.     
+
+[05:33:20]          Version:  2.8.3        
+
+[05:33:20]   (c) 2018 Alex "Y_Less" Cole  
+
+[05:33:20]  ===============================
+
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: streamer.so
+[05:33:20] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: SKY.so
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: mysql_static.so
+[05:33:20]  >> plugin.mysql: R39-6 successfully loaded.
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: nativechecker.so
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: pawn-memory.so
+[05:33:20] ========================
+[05:33:20] = Memory access plugin =
+[05:33:20] =       Made by BigETI =
+[05:33:20] = Loaded!              =
+[05:33:20] ========================
+[05:33:20]   Loaded.
+[05:33:20]  Loading plugin: FileFunctions.so
+[05:33:20]   Loaded.
+[05:33:20]  Loaded 11 plugins.
+
+[05:33:20] 
+[05:33:20] Ban list
+[05:33:20] --------
+[05:33:20]  Loaded: samp.ban
+[05:33:20] 
+[05:33:20] 
+[05:33:20] Filterscripts
+[05:33:20] ---------------
+[05:33:20]   Loading filterscript 'android-check.amx'...
+[05:33:20] [sv:dbg:main:AmxLoad] : net game pointer (value:0x9770f80) received
+[05:33:20] [sv:dbg:network:bind] : voice server running on port 30001
+[05:33:20] Android check has been successfully loaded.
+[05:33:20]   Loading filterscript 'jobmap.amx'...
+[05:33:20]   Loading filterscript 'antiddos.amx'...
+[05:33:20]    Error: Function not registered: 'fileOpen'
+[05:33:20]    Error: Function not registered: 'fileSeek'
+[05:33:20]    Error: Function not registered: 'fileRead'
+[05:33:20]   Loading filterscript 'Anti_vpn.amx'...
+[05:33:20] 
+--------------------------------------
+[05:33:20]         Anti Proxy by Delet User         
+[05:33:20] --------------------------------------
+
+[05:33:20]   Loaded 4 filterscripts.
+
+[05:33:20]    Error: Function not registered: 'MEM_get_val'
+[05:33:20]    Error: Function not registered: 'MEM_get_size'
+[05:33:20]    Error: Function not registered: 'MEM_get_arr'
+[05:33:20]    Error: Function not registered: 'MEM_delete'
+[05:33:20]    Error: Function not registered: 'MEM_set_val'
+[05:33:20]    Error: Function not registered: 'MEM_new'
+[05:33:20]    Error: Function not registered: 'MEM_new_arr'
+[05:33:20]    Error: Function not registered: 'MEM_copy'
+[05:33:20] [Nex-AC] Error creating/opening nex-ac_settings.cfg!
+[05:33:20] [Nex-AC] Error creating/opening nex-ac_nop_settings.cfg!
+[05:33:20]  
+[05:33:20] --------------------------------------
+[05:33:20]  Nex-AC loaded!
+[05:33:20]  Nex-AC version: 1.9.55
+[05:33:20]  Author: Nexius
+[05:33:20] --------------------------------------
+
+[05:33:20] EnableTirePopping() function is removed.
+[05:33:20] Couldn't connect to radio station database... server will continue to operate normally.
+[05:33:20] Legendary Roleplay
+[05:33:20] 398 objects loaded.
+[05:33:20] Number of vehicle models: 9
+[05:33:20] [Script] 0 atms loaded
+[05:33:20] [Script] 0 vendors loaded
+[05:33:20] [Script] 0 mdc loaded
+[05:33:20] [Script] 0 surgery room loaded
+[05:33:20] [Script] 4 Public Garage loaded
+[05:33:20] [Script] 0 houses loaded.
+[05:33:20] [Script] 0 garages loaded.
+[05:33:20] [Script] 1 businesses loaded.
+[05:33:20] [Script] 1 businesses loaded.
+[05:33:20] [Script] 0 entrances loaded.
+[05:33:20] [Script] 2 factions loaded.
+[05:33:20] [Script] 0 lands loaded.
+[05:33:20] [Script] 0 gangs loaded.
+[05:33:20] [Script] 0 points loaded.
+[05:33:20] [Script] 0 turfs loaded.
+[05:33:20] [MySQL] 0 textlabel loaded.
+[05:33:20] [Script] 0 actor loaded
+[05:33:20] [Script] 0 safezones loaded
+[05:33:44] [connection] incoming connection: 157.51.17.141:55998 id: 0
+[05:33:45] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:33:45] [sv:dbg:network:connect] : player (0) assigned key (8d11339ddec5439c)
+[05:33:45] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:33:45] Ambi_Da Just connected to the server.
+[05:33:45] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:33:45] [sv:dbg:network:receive] : player (0) identified (port:54286)
+[05:34:40] [sv:dbg:network:connect] : disconnecting player (0) ...
+[05:34:40] Ambi_Da Just left the server.
+[05:34:40] [part] Ambi_Da has left the server (0:0)
+[05:35:37] [connection] incoming connection: 157.51.17.141:56287 id: 0
+[05:35:38] [sv:dbg:network:connect] : connecting player (0) with address (157.51.17.141) ...
+[05:35:38] [sv:dbg:network:connect] : player (0) assigned key (8d11339d73c8157b)
+[05:35:38] [join] Ambi_Da has joined the server (0:157.51.17.141)
+[05:35:38] Ambi_Da Just connected to the server.
+[05:35:38] Ambi_Da has joined the server {FFFFFF}[IP: 157.51.17.141]
+[05:35:38] [sv:dbg:network:receive] : player (0) identified (port:56288)
+[05:35:47] {25c712}Ambi Da has logged in as a .
+[05:45:35] [connection] incoming connection: 157.51.135.218:58234 id: 1
+[05:45:36] [join] Mr_Vikram has joined the server (1:157.51.135.218)
+[05:45:36] Mr_Vikram Just connected to the server.
+[05:45:36] Mr_Vikram has joined the server {FFFFFF}[IP: 157.51.135.218]
+[05:45:53] AdmWarning: Mr Vikram tried to login with a locked account.
+[05:45:53] Mr_Vikram Just left the server.
+[05:45:53] [part] Mr_Vikram has left the server (1:2)
+[05:46:04] [cmd] Ambi Da: [whitelist]
+[05:46:04] [SYSTEM]: {FFFFFF}  Ambi Da has whitelist Mr_Vikram's account.
+[05:46:36] [cmd] Ambi Da: [setfreq]
+[05:46:50] [Nex-AC debug] ID 0 exceeded the maximum of 11 flood attempts. Public ID: 4
+[05:46:50] [Nex-AC] ID 0 appears suspicious. Reason code: 049 (4)
+[05:47:57] [SYSTEM]: {FFFFFF}  Ambi Da spawned a Hotring.
+[05:47:57] [cmd] Ambi Da: [veh]
+[05:49:51] [connection] incoming connection: 157.51.135.218:58840 id: 1
+[05:49:51] [join] Mr_Vikram has joined the server (1:157.51.135.218)
+[05:49:51] Mr_Vikram Just connected to the server.
+[05:49:51] Mr_Vikram has joined the server {FFFFFF}[IP: 157.51.135.218]
+[05:50:13] [cmd] Ambi Da: [veh]
+[05:50:22] [SYSTEM]: {FFFFFF}  Ambi Da spawned a Mule.
+[05:50:22] [cmd] Ambi Da: [veh]
+[05:50:48] AdmCmd: Ambi Da has made Mr Vikram a Management (7).
+[05:50:48] [cmd] Ambi Da: [makeadmin]
+[05:51:03] [cmd] Ambi Da: [goto]
+[05:51:26] Mr_Vikram Just left the server.
+[05:51:26] [part] Mr_Vikram has left the server (1:0)
+[05:51:52] [SYSTEM]: {FFFFFF} Ambi Da has given a M4 to Ambi Da.
+[05:51:52] [cmd] Ambi Da: [givegun]
+[05:52:01] [sv:dbg:network:connect] : disconnecting player (0) ...
+[05:52:01] Ambi_Da Just left the server.
+[05:52:01] [part] Ambi_Da has left the server (0:1)
+[05:52:14] [connection] incoming connection: 157.51.135.218:63316 id: 0
+[05:52:14] [join] Mr_Vikram has joined the server (0:157.51.135.218)
+[05:52:14] Mr_Vikram Just connected to the server.
+[05:52:14] Mr_Vikram has joined the server {FFFFFF}[IP: 157.51.135.218]
+[05:52:25] {25c712}Mr Vikram has logged in as a Management.
+[05:53:06] [cmd] Mr Vikram: [inv]
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[20:42:59] password = ""  (string)
+[20:42:59] 
+[20:42:59] Server Plugins
+[20:42:59] --------------
+[20:42:59]  Loading plugin: sampvoice.so
+[20:43:07]   Failed.
+[20:43:07]  Loading plugin: sampvoice
+[20:43:07]   Failed.
+[20:43:07]  Loading plugin: crashdetect.so
+[20:43:08]   Failed.
+[20:43:08]  Loading plugin: whirlpool.so
+[20:43:08]   Failed.
+[20:43:08]  Loading plugin: pawncmd.so
+[20:43:08]   Failed.
+[20:43:08]  Loading plugin: sscanf.so
+[20:43:09]   Failed.
+[20:43:09]  Loading plugin: streamer.so
+[20:43:09]   Failed.
+[20:43:09]  Loading plugin: SKY.so
+[20:43:09]   Failed.
+[20:43:09]  Loading plugin: mysql_static.so
+[20:43:09]   Failed.
+[20:43:09]  Loading plugin: nativechecker.so
+[20:43:09]   Failed.
+[20:43:09]  Loading plugin: pawn-memory.so
+[20:43:10]   Failed.
+[20:43:10]  Loading plugin: FileFunctions.so
+[20:43:10]   Failed.
+[20:43:10]  Loaded 0 plugins.
+
+[20:43:10] 
+[20:43:10] Ban list
+[20:43:10] --------
+[20:43:10]  Loaded: samp.ban
+[20:43:10] 
+[20:43:10] 
+[20:43:10] Filterscripts
+[20:43:10] ---------------
+[20:43:10]   Loading filterscript 'android-check.amx'...
+[20:43:10] Android check has been successfully loaded.
+[20:43:10]   Loading filterscript 'jobmap.amx'...
+[20:43:10]   Loading filterscript 'antiddos.amx'...
+[20:43:10]   Loading filterscript 'Anti_vpn.amx'...
