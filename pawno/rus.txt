@@ -1,20 +1,38 @@
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(18423) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "fuel"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(18416) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "string"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(55998) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "string"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(64424) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "price"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(67964) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "price"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(76350) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "i"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99161) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring5"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99160) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring4"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99160) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring3"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(114738) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "msg"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(114756) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "msg"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(115562) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "vehicleid"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(116646) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "string"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(116944) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "param"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(6012) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "ac"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(6023) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "callbackss"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(6014) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "logs"
-C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(6022) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "twt"
+C:\Legendary Roleply\pawno\include\discord-cmd.inc(160) : îøèáêà 004: ôóíêöèÿ "OnDiscordCommandPerformed" íå ðåàëèçîâàíà
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(18507) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "fuel"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(18500) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "string"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(25810) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_dialershow"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(25817) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_gpayshow"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(25835) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_whatsappshow"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(25878) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_instashow"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(55473) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "RemoveFurni"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(56089) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "string"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(64515) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "price"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(68055) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "price"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(68769) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "GetRandomBusiness"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(68782) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "GetRandomBusiness"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(68795) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "GetRandomBusiness"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(68808) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "GetRandomBusiness"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(69605) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_usedrug"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(69629) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_usedrug"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(69653) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_usedrug"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(69677) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_usedrug"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(69749) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_use"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(76441) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "i"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99252) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring5"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99251) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring4"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(99251) : èäåíòèôèêàòîðó ïðèñâîåíî çíà÷åíèå, íî îí íå èñïîëüçóåòñÿ: "jobstring3"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(104185) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_fmembers"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109839) : îøèáêà 079: íåñîâìåñòèìûé âîçâðàùàåìûé òèï (ìàññèâ è íåìàññèâ)
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109844) : îøèáêà 079: íåñîâìåñòèìûé âîçâðàùàåìûé òèï (ìàññèâ è íåìàññèâ)
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109856) : îøèáêà 029: íåïðàâèëüíîå âûðàæåíèå, ïðèíÿò íîëü
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109856) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "pc_cmd_plant"
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109856) : îøèáêà 029: íåïðàâèëüíîå âûðàæåíèå, ïðèíÿò íîëü
+C:\Legendary Roleply\gamemodes\lrpop3-1 (1)-1-1-1.pwn(109856) : ôàòàëüíàÿ îøèáêà 107: ñëèøêîì ìíîãî îøèáîê íà îäíîé ñòðîêå
+
+Êîìïèëÿöèÿ îñòàíîâëåíà.
+
 Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2017, ITB CompuPhase
 
+
+Îøèáîê:22.

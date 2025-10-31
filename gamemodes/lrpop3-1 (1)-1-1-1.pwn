@@ -1651,7 +1651,8 @@ enum
 	FACTION_TAXI,
 	FACTION_CD,
 	FACTION_LOGISTICS,
-	FACTION_TRUCKER
+	FACTION_TRUCKER,
+	FACTION_CP
 };
 
 enum
@@ -3054,6 +3055,7 @@ new gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours;
 new gDoubleXP;
 new gCheckinvault;
 new gMechvault;
+new gPdvault;
 new gRestvault;
 new gTaxivault;
 new gLastAd;
@@ -9526,6 +9528,7 @@ DisplayInventory(playerid, targetid = INVALID_PLAYER_ID)
 		Rope:\t %i\n\
 		Fireworks:\t %i\n\
 		Dirty Cash:\t %i\n\
+		Veggies:\t %i\n\
 		Boombox:\t %s\n\
 		MP3Player:\t %s\n\
 		Mobile Phone:\t %s\n\
@@ -9554,6 +9557,7 @@ DisplayInventory(playerid, targetid = INVALID_PLAYER_ID)
 		PlayerInfo[playerid][pRope],
 		PlayerInfo[playerid][pFirework],
 		PlayerInfo[playerid][pDirtyCash],
+		PlayerInfo[playerid][pPot],
 		PlayerInfo[playerid][pBoombox] ? ("Yes") : ("No"),
 		PlayerInfo[playerid][pMP3Player] ? ("Yes") : ("No"),
 		PlayerInfo[playerid][pPhone] ? ("Yes") : ("No"),
@@ -10711,6 +10715,11 @@ AddToMechVault(amount)
 	gMechvault += amount;
 	SaveServerInfo();
 }
+AddToPdVault(amount)
+{
+	gPdvault += amount;
+	SaveServerInfo();
+}
 AddToRestVault(amount)
 {
 	gRestvault += amount;
@@ -10731,7 +10740,7 @@ SaveServerInfo()
     {
         new
 			string[255];
-        format(string, sizeof(string), "%i|%i|%i|%s|%s|%i|%i|%i|%i|%i|%i|%s|%s|%i|%i| %i | %i | %i | %i | %i", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1], gCheckinvault, gMechvault, gRestvault, gTaxivault);
+        format(string, sizeof(string), "%i|%i|%i|%s|%s|%i|%i|%i|%i|%i|%i | %i |%s|%s|%i|%i| %i | %i | %i | %i | %i", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1], gCheckinvault, gPdvault, gMechvault, gRestvault, gTaxivault);
         fwrite(file, string);
         fclose(file);
 	}
@@ -10747,7 +10756,7 @@ LoadServerInfo()
 	    new string[255];
 
 	    fread(file, string);
-	    sscanf(string, "p<|>iiis[24]s[128]iiiiiis[128]s[128]iiiiiii", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1],gCheckinvault, gMechvault, gRestvault, gTaxivault);
+	    sscanf(string, "p<|>iiis[24]s[128]iiiiiis[128]s[128]iiiiiiii", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1],gCheckinvault, gMechvault, gRestvault, gTaxivault, gPdvault);
 	    fclose(file);
 	}
 
@@ -12243,6 +12252,81 @@ ResetStealing(playerid)
     PlayerInfo[playerid][pStoleSteel] = 0;
 	PlayerInfo[playerid][pStoleTime] = 0;
 	PlayerInfo[playerid][pSteelCount] = 0;
+}
+Vehicle_BarrelCount2(vehicleid)
+{
+    new count;
+	if(GetVehicleModel(vehicleid) != 428 )
+	{
+		return 0;
+	}
+	for(new i; i < BARREL_LIMIT; i++)
+	{
+		if(IsValidDynamicObject(BarrelObjects[vehicleid][i]))
+		{
+		 	count++;
+		}
+	}
+	return count;
+}
+
+
+
+AddBox(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLoaderBox] = 1;
+    SetPlayerAttachedObject(playerid, 9, 1271, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
+    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
+	return 1;
+}
+RemoveBox(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLoaderBox] = 0;
+	RemovePlayerAttachedObject(playerid, 9);
+	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+	return 1;
+}
+StopLoopingAnim(playerid)
+{
+    ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.1, 0, 0, 0, 0, 0);
+    ClearAnimations(playerid, 1);
+}
+
+AddWood(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLumberWood] = 1;
+	PlayerInfo[playerid][pFurnitureWood]=1;
+    SetPlayerAttachedObject(playerid, 9, 19793, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
+    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
+	return 1;
+}
+RemoveWood(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLumberWood] = 0;
+	PlayerInfo[playerid][pFurnitureWood]=0;	
+	RemovePlayerAttachedObject(playerid, 9);
+	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+	return 1;
 }
 
 ResetPlayer(playerid)
@@ -19611,7 +19695,7 @@ public SecondTimer()
 						mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET pot = %i WHERE uid = %i", PlayerInfo[i][pPot], PlayerInfo[i][pID]);
 						mysql_tquery(connectionID, queryBuffer);
 
-						SM(i, COLOR_AQUA, "You have harvested %i grams of pot from this plant.", PlayerInfo[planterid][pPotGrams]);
+						SM(i, COLOR_AQUA, "You have harvested %i veggiesfrom this plant.", PlayerInfo[planterid][pPotGrams]);
 					    DestroyPotPlant(planterid);
 					}
 
@@ -26611,6 +26695,11 @@ for(new i = 0; i < sizeof(fruitpickerPositions); i ++)
 
      CreateDynamic3DTextLabel("Oil Exporter\n(( Type '/oilstake' to start the collecting the oil ))", COLOR_AQUA, 564.392517, 1319.291625, 10.115003, 10.0);
 
+	 CreateDynamic3DTextLabel("Seed Vendor\n(( Type '/getseed' to get seeds))", COLOR_AQUA, -1115.150024, -1637.900024, 76.367187, 10.0);
+
+	
+	CreateDynamic3DTextLabel("Planting Area", COLOR_AQUA, -1026.052124, -1619.573974, 76.367187, 10.0);
+	CreateDynamic3DTextLabel("Planting Area", COLOR_AQUA,-1023.314514, -1627.692016, 76.367187, 10.0);
 	CreateDynamic3DTextLabel("Black HP\n/BHP and pay $15000\nPress "WHITE"'n'"RED" to open menu.",COLOR_RED, 415.7937, 2535.0376, 19.1484, 4.0);
 
 	CreateDynamic3DTextLabel("Garbage Pickup\n"WHITE"Type '/garbage' to begin.", COLOR_YELLOW, 2196.3726,-1977.2947,13.5527, 10.0);
@@ -109656,6 +109745,7 @@ CMD:getdrug(playerid, params[])
 
 	return 1;
 }
+/*
 
 CMD:plantpot(playerid, params[])
 {	
@@ -109692,10 +109782,10 @@ CMD:plantpot(playerid, params[])
 
 CMD:plantinfo(playerid, params[])
 {
-	/*if(PlayerInfo[playerid][pGang] == -1)
+	if(PlayerInfo[playerid][pGang] == -1)
 	{
 		return SCM(playerid, COLOR_SYNTAX, "You can't use this command as you're not a gang member.");
-	}*/
+	}
 	foreach(new i : Player)
 	{
 	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
@@ -109740,8 +109830,111 @@ CMD:pickplant(playerid, params[])
 
 	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
 	return 1;
+}*/
+
+CMD:getseed(playerid, params[])
+{	
+	if(IsPlayerInRangeOfPoint(playerid, 3.0, -1115.150024, -1637.900024, 76.367187) || IsPlayerInRangeOfPoint(playerid, 3.0, -1120.614990, -1629.484985, 76.367187))
+	{
+	    return SCM(playerid, COLOR_SYNTAX, "You are not in range of the seed vendor.");
+	}
+	{
+	if (GetFactionType(playerid) != FACTION_CP) 
+   {
+        return SendClientMessage(playerid, COLOR_SYNTAX, "You are not belongs to this community job; you can't use this command.");
+    }
+
+    PlayerInfo[playerid][pSeeds] = 10;
+	GivePlayerCash(playerid, 250);
+
+	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET seeds = %i WHERE uid = %i", PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pID]);
+	mysql_tquery(connectionID, queryBuffer);
+
 }
 
+
+CMD:plant(playerid, params[])
+{	
+	if(IsPlayerInRangeOfPoint(playerid, 3.0, -1026.052124, -1619.573974, 76.367187) && IsPlayerInRangeOfPoint(playerid, 3.0, -1023.314514, -1627.692016, 76.367187))
+	{
+	SCM(playerid, COLOR_SYNTAX, "You're not in farming place!")
+	return 1;
+	}
+	if(PlayerInfo[playerid][pSeeds] < 10)
+	{
+	    return SCM(playerid, COLOR_SYNTAX, "You don't have enough seeds. You need at least 10 seeds in order to plant them.");
+	}
+	if(GetPlayerInterior(playerid) > 0 || GetPlayerVirtualWorld(playerid) > 0)
+	{
+	    return SCM(playerid, COLOR_SYNTAX, "You can't plant indoors.");
+	}
+
+	GetPlayerPos(playerid, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ]);
+	GetPlayerFacingAngle(playerid, PlayerInfo[playerid][pPotA]);
+
+	PlayerInfo[playerid][pSeeds] -= 10;
+	PlayerInfo[playerid][pPotTime] = 60;
+	PlayerInfo[playerid][pPotObject] = CreateDynamicObject(892, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ] - 1.8, 0.0, 0.0, PlayerInfo[playerid][pPotA]);
+
+	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET seeds = %i, potplanted = 1, pottime = %i, potgrams = %i, pot_x = '%f', pot_y = '%f', pot_z = '%f', pot_a = '%f' WHERE uid = %i", PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pPotTime], PlayerInfo[playerid][pPotGrams], PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ], PlayerInfo[playerid][pPotA], PlayerInfo[playerid][pID]);
+	mysql_tquery(connectionID, queryBuffer);
+
+	SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s plants some seeds into the ground.", GetRPName(playerid));
+	SCM(playerid, COLOR_YELLOW, "You have planted a plant. Every two minutes your plant will grow any type of veggies.");
+	SCM(playerid, COLOR_YELLOW, "Your plant will be ready in 60 minutes.");
+	return 1;
+
+}
+
+CMD:plantinfo(playerid, params[])
+{
+	
+	foreach(new i : Player)
+	{
+	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
+	    {
+	        SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s inspects the plant.", GetRPName(playerid));
+	        SM(playerid, COLOR_WHITE, "** This plant has so far grown %i Veggies. It will be ready in %i/60 minutes.", PlayerInfo[i][pPotGrams], PlayerInfo[i][pPotTime]);
+	        return 1;
+		}
+	}
+
+	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
+	return 1;
+}
+
+CMD:pickplant(playerid, params[])
+{
+    foreach(new i : Player)
+	{
+	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
+	    {
+	        if(GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_DUCK)
+	        {
+	            return SCM(playerid, COLOR_SYNTAX, "You need to be crouched in order to pick a plant.");
+			}
+			if(PlayerInfo[i][pPotGrams] < 2)
+			{
+			    return SCM(playerid, COLOR_SYNTAX, "This plant hasn't grown that much yet. Wait a little while first.");
+			}
+			if(PlayerInfo[playerid][pPot] + PlayerInfo[i][pPotGrams] > GetPlayerCapacity(CAPACITY_WEED))
+			{
+			    return SM(playerid, COLOR_SYNTAX, "You currently have %i/%i veggies. You can't carry anymore .", PlayerInfo[playerid][pPot], GetPlayerCapacity(CAPACITY_WEED));
+			}
+
+			PlayerInfo[playerid][pPickPlant] = i;
+			PlayerInfo[playerid][pPickTime] = 5;
+
+			SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s crouches down and starts picking at the plant.", GetRPName(playerid));
+			SCM(playerid, COLOR_WHITE, "** Allow up to five seconds for you to pick the plant.");
+			return 1;
+		}
+	}
+
+	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
+	return 1;
+}
+/*
 CMD:seizeplant(playerid, params[])
 {
     if(!IsLawEnforcement(playerid))
@@ -109767,7 +109960,7 @@ CMD:seizeplant(playerid, params[])
 	return 1;
 }
 
-/*CMD:cookmeth(playerid, params[])
+CMD:cookmeth(playerid, params[])
 {
 	if(!PlayerHasJob(playerid, JOB_DRUGDEALER))
     {
@@ -114076,6 +114269,7 @@ CMD:pbill(playerid, params[])
 	}
 
 	GivePlayerCash(targetid, -amount);
+	AddToPdVault(amount);
     SM(playerid, COLOR_AQUA, "{FFFF00} [INFO] {FFFFFF} You have successfully billed %s for {00FF00}$%i{FFFFFF} - {FF0000}%s", GetRPName(targetid), amount);
         SM(targetid, COLOR_AQUA, "{FFFF00} [INFO] {FFFFFF} %s charged you a bill for {00FF00}$%i{FFFFFF} - {FF0000}%s", GetRPName(playerid), amount);
 	return 1;
@@ -115460,37 +115654,6 @@ Vehicle_BarrelCount(vehicleid)
 	return count;
 }
 
-AddWood(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLumberWood] = 1;
-	PlayerInfo[playerid][pFurnitureWood]=1;
-    SetPlayerAttachedObject(playerid, 9, 19793, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
-    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
-	return 1;
-}
-RemoveWood(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLumberWood] = 0;
-	PlayerInfo[playerid][pFurnitureWood]=0;	
-	RemovePlayerAttachedObject(playerid, 9);
-	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-	return 1;
-}
-StopLoopingAnim(playerid)
-{
-    ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.1, 0, 0, 0, 0, 0);
-    ClearAnimations(playerid, 1);
-}
 
 cmd:choptree(playerid, params[])
 {
@@ -115726,49 +115889,7 @@ CMD:findtree(playerid, params[])
     SetPlayerCheckpoint(playerid, lumber2Positions[i][0], lumber2Positions[i][1], lumber2Positions[i][2], 5.0);
 	return 1;
 }
-Vehicle_BarrelCount2(vehicleid)
-{
-    new count;
-	if(GetVehicleModel(vehicleid) != 428 )
-	{
-		return 0;
-	}
-	for(new i; i < BARREL_LIMIT; i++)
-	{
-		if(IsValidDynamicObject(BarrelObjects[vehicleid][i]))
-		{
-		 	count++;
-		}
-	}
-	return count;
-}
 
-
-
-AddBox(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLoaderBox] = 1;
-    SetPlayerAttachedObject(playerid, 9, 1271, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
-    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
-	return 1;
-}
-RemoveBox(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLoaderBox] = 0;
-	RemovePlayerAttachedObject(playerid, 9);
-	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-	return 1;
-}
 cmd:takemoney(playerid, params[])
 {
 	if(!PlayerHasJob(playerid, JOB_MONEYLOADER))
@@ -116403,6 +116524,38 @@ CMD:restaurantvault(playerid, params[])
 
 	SM(playerid, COLOR_AQUA, "** You have withdrawn $%i from the restaurant vault. The new balance is $%i.", amount, gRestvault);
 	SAM(COLOR_YELLOW, ""RED"AdmWarning: %s"WHITE" has withdrawn $%i from the restaurant vault, reason: %s", GetRPName(playerid), amount, reason);
+	return 1;
+}
+CMD:societymoney(playerid, params[])
+{
+	new amount, reason[64];
+
+	if((FactionInfo[PlayerInfo[playerid][pFaction]][fType] != FACTION_POLICE))
+	{
+	    return SCM(playerid, COLOR_SYNTAX, "You must be a police to use this command.");
+	}
+	if(!IsPlayerInRangeOfLocker(playerid, PlayerInfo[playerid][pFaction]))
+	{
+	    return SCM(playerid, COLOR_ERROR, "[ERROR]:"WHITE" You are not in range of your faction locker.");
+	}
+	if(PlayerInfo[playerid][pFactionRank] < 5)
+    {
+        return SCM(playerid, COLOR_SYNTAX, "You Cannot Use This Command Your Rank Lvl Is Low.");
+	}
+	if(sscanf(params, "is[64]", amount, reason))
+	{
+	    return SM(playerid, COLOR_WHITE, "USAGE /societymoney [amount] [reason] ($%i available)", gPdvault);
+	}
+	if(amount < 1 || amount > gPdvault)
+	{
+	    return SCM(playerid, COLOR_SYNTAX, "Insufficient amount.");
+	}
+
+	AddToPdVault(-amount);
+	GivePlayerCash(playerid, amount);
+
+	SM(playerid, COLOR_AQUA, "** You have withdrawn $%i from the PD vault. The new balance is $%i.", amount, gPdvault);
+	SAM(COLOR_YELLOW, ""RED"AdmWarning: %s"WHITE" has withdrawn $%i from the PD vault, reason: %s", GetRPName(playerid), amount, reason);
 	return 1;
 }
 CMD:mechvault(playerid, params[])
