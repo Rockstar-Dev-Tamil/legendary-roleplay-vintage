@@ -1651,8 +1651,7 @@ enum
 	FACTION_TAXI,
 	FACTION_CD,
 	FACTION_LOGISTICS,
-	FACTION_TRUCKER,
-	FACTION_CP
+	FACTION_TRUCKER
 };
 
 enum
@@ -3055,7 +3054,6 @@ new gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours;
 new gDoubleXP;
 new gCheckinvault;
 new gMechvault;
-new gPdvault;
 new gRestvault;
 new gTaxivault;
 new gLastAd;
@@ -6742,6 +6740,10 @@ stock CountIP(ip[]) // Counts how many connections from one IP.
 	for(new i = 0; i < MAX_PLAYERS; i++) if(IsPlayerConnected(i) && !strcmp(GetIP(i),ip)) b++;
 	return b;
 }
+stock GetPlayerCash(playerid)
+{
+    return PlayerInfo[playerid][pCash];
+}
 
 stock GetIP(playerid) // Fetches the player IP.
 {
@@ -9528,7 +9530,6 @@ DisplayInventory(playerid, targetid = INVALID_PLAYER_ID)
 		Rope:\t %i\n\
 		Fireworks:\t %i\n\
 		Dirty Cash:\t %i\n\
-		Veggies:\t %i\n\
 		Boombox:\t %s\n\
 		MP3Player:\t %s\n\
 		Mobile Phone:\t %s\n\
@@ -9557,7 +9558,6 @@ DisplayInventory(playerid, targetid = INVALID_PLAYER_ID)
 		PlayerInfo[playerid][pRope],
 		PlayerInfo[playerid][pFirework],
 		PlayerInfo[playerid][pDirtyCash],
-		PlayerInfo[playerid][pPot],
 		PlayerInfo[playerid][pBoombox] ? ("Yes") : ("No"),
 		PlayerInfo[playerid][pMP3Player] ? ("Yes") : ("No"),
 		PlayerInfo[playerid][pPhone] ? ("Yes") : ("No"),
@@ -10715,11 +10715,6 @@ AddToMechVault(amount)
 	gMechvault += amount;
 	SaveServerInfo();
 }
-AddToPdVault(amount)
-{
-	gPdvault += amount;
-	SaveServerInfo();
-}
 AddToRestVault(amount)
 {
 	gRestvault += amount;
@@ -10740,7 +10735,7 @@ SaveServerInfo()
     {
         new
 			string[255];
-        format(string, sizeof(string), "%i|%i|%i|%s|%s|%i|%i|%i|%i|%i|%i | %i |%s|%s|%i|%i| %i | %i | %i | %i | %i", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1], gCheckinvault, gPdvault, gMechvault, gRestvault, gTaxivault);
+        format(string, sizeof(string), "%i|%i|%i|%s|%s|%i|%i|%i|%i|%i|%i|%s|%s|%i|%i| %i | %i | %i | %i | %i", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1], gCheckinvault, gMechvault, gRestvault, gTaxivault);
         fwrite(file, string);
         fclose(file);
 	}
@@ -10756,7 +10751,7 @@ LoadServerInfo()
 	    new string[255];
 
 	    fread(file, string);
-	    sscanf(string, "p<|>iiis[24]s[128]iiiiiis[128]s[128]iiiiiiii", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1],gCheckinvault, gMechvault, gRestvault, gTaxivault, gPdvault);
+	    sscanf(string, "p<|>iiis[24]s[128]iiiiiis[128]s[128]iiiiiii", gTax, gVault, gPlayerRecord, gRecordDate, gServerMOTD, gConnections, gTotalRegistered, gTotalKills, gTotalDeaths, gTotalHours, gAnticheatBans, adminMOTD, helperMOTD, MaxCapCount[0], MaxCapCount[1],gCheckinvault, gMechvault, gRestvault, gTaxivault);
 	    fclose(file);
 	}
 
@@ -12252,81 +12247,6 @@ ResetStealing(playerid)
     PlayerInfo[playerid][pStoleSteel] = 0;
 	PlayerInfo[playerid][pStoleTime] = 0;
 	PlayerInfo[playerid][pSteelCount] = 0;
-}
-Vehicle_BarrelCount2(vehicleid)
-{
-    new count;
-	if(GetVehicleModel(vehicleid) != 428 )
-	{
-		return 0;
-	}
-	for(new i; i < BARREL_LIMIT; i++)
-	{
-		if(IsValidDynamicObject(BarrelObjects[vehicleid][i]))
-		{
-		 	count++;
-		}
-	}
-	return count;
-}
-
-
-
-AddBox(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLoaderBox] = 1;
-    SetPlayerAttachedObject(playerid, 9, 1271, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
-    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
-	return 1;
-}
-RemoveBox(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLoaderBox] = 0;
-	RemovePlayerAttachedObject(playerid, 9);
-	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-	return 1;
-}
-StopLoopingAnim(playerid)
-{
-    ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.1, 0, 0, 0, 0, 0);
-    ClearAnimations(playerid, 1);
-}
-
-AddWood(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLumberWood] = 1;
-	PlayerInfo[playerid][pFurnitureWood]=1;
-    SetPlayerAttachedObject(playerid, 9, 19793, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
-    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
-	return 1;
-}
-RemoveWood(playerid)
-{
-    if(!IsPlayerConnected(playerid))
-    {
-		return 0;
-	}
-	PlayerInfo[playerid][pLumberWood] = 0;
-	PlayerInfo[playerid][pFurnitureWood]=0;	
-	RemovePlayerAttachedObject(playerid, 9);
-	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
-	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-	return 1;
 }
 
 ResetPlayer(playerid)
@@ -18090,6 +18010,7 @@ public RobFleecabank(playerid)
 	mysql_tquery(connectionID, queryBuffer);
     return 1;
 }*/
+
 forward phonerob(playerid);
 public phonerob(playerid)
 {
@@ -19695,7 +19616,7 @@ public SecondTimer()
 						mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET pot = %i WHERE uid = %i", PlayerInfo[i][pPot], PlayerInfo[i][pID]);
 						mysql_tquery(connectionID, queryBuffer);
 
-						SM(i, COLOR_AQUA, "You have harvested %i veggiesfrom this plant.", PlayerInfo[planterid][pPotGrams]);
+						SM(i, COLOR_AQUA, "You have harvested %i grams of pot from this plant.", PlayerInfo[planterid][pPotGrams]);
 					    DestroyPotPlant(planterid);
 					}
 
@@ -20099,7 +20020,7 @@ public MinuteTimer()
 	        {
 		        if(PlayerInfo[i][pAFK] && PlayerInfo[i][pAFKTime] > 300)
 		        {
-		            Kick(i);
+		            Kick(i)
 				}
 		        else if(PlayerInfo[i][pMinutes] < 25)
 		        {
@@ -20985,15 +20906,15 @@ public OnPlayerAttemptInviteGang(playerid, targetid)
 {
     if(cache_get_row_int(0, 0) >= GetGangMemberLimit(PlayerInfo[playerid][pGang]))
     {
-        SM(playerid, COLOR_SYNTAX, "Your gang can't have more than %i members at its level.", GetGangMemberLimit(PlayerInfo[playerid][pGang]));
+        SM(playerid, COLOR_SYNTAX, "Your community can't have more than %i members at its level.", GetGangMemberLimit(PlayerInfo[playerid][pGang]));
     }
     else
     {
     	PlayerInfo[targetid][pGangOffer] = playerid;
 		PlayerInfo[targetid][pGangOffered] = PlayerInfo[playerid][pGang];
 
-		SM(targetid, COLOR_AQUA, "%s has invited you to join "SVRCLR"%s{CCFFFF} (/accept gang).", GetRPName(playerid), GangInfo[PlayerInfo[playerid][pGang]][gName]);
-		SM(playerid, COLOR_AQUA, "You have invited %s to join your gang.", GetRPName(targetid));
+		SM(targetid, COLOR_AQUA, "%s has invited you to join "SVRCLR"%s{CCFFFF} (/accept community).", GetRPName(playerid), GangInfo[PlayerInfo[playerid][pGang]][gName]);
+		SM(playerid, COLOR_AQUA, "You have invited %s to join your community.", GetRPName(targetid));
 	}
 }
 
@@ -26695,11 +26616,6 @@ for(new i = 0; i < sizeof(fruitpickerPositions); i ++)
 
      CreateDynamic3DTextLabel("Oil Exporter\n(( Type '/oilstake' to start the collecting the oil ))", COLOR_AQUA, 564.392517, 1319.291625, 10.115003, 10.0);
 
-	 CreateDynamic3DTextLabel("Seed Vendor\n(( Type '/getseed' to get seeds))", COLOR_AQUA, -1115.150024, -1637.900024, 76.367187, 10.0);
-
-	
-	CreateDynamic3DTextLabel("Planting Area", COLOR_AQUA, -1026.052124, -1619.573974, 76.367187, 10.0);
-	CreateDynamic3DTextLabel("Planting Area", COLOR_AQUA,-1023.314514, -1627.692016, 76.367187, 10.0);
 	CreateDynamic3DTextLabel("Black HP\n/BHP and pay $15000\nPress "WHITE"'n'"RED" to open menu.",COLOR_RED, 415.7937, 2535.0376, 19.1484, 4.0);
 
 	CreateDynamic3DTextLabel("Garbage Pickup\n"WHITE"Type '/garbage' to begin.", COLOR_YELLOW, 2196.3726,-1977.2947,13.5527, 10.0);
@@ -33086,6 +33002,260 @@ TextDrawSetSelectable(PHONEGPS[39], 1);
 	new_clothing_int = CreateDynamicObject(957, 2093.666015, -1640.923339, 1260.363525, 0.000000, 0.000000, 0.000000, -1, -1, -1);
 	new_clothing_int = CreateDynamicObject(957, 2093.666015, -1642.467529, 1260.363525, 0.000000, 0.000000, 0.000000, -1, -1, -1);
 	
+//bank ext
+tmpobjid = CreateDynamicObject(1495, 1460.130371, -1020.462829, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 1, 18996, "mattextures", "sampwhite", 0x00000000);
+SetDynamicObjectMaterial(tmpobjid, 2, 10765, "airportgnd_sfse", "black64", 0x00000000);
+tmpobjid = CreateDynamicObject(1495, 1463.130371, -1020.462829, 23.328126, 0.000000, 0.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 1, 18996, "mattextures", "sampwhite", 0x00000000);
+SetDynamicObjectMaterial(tmpobjid, 2, 10765, "airportgnd_sfse", "black64", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1463.628295, -1020.905456, 24.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1459.638305, -1020.905456, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1476.810302, -1021.705200, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1482.118286, -1021.305358, 28.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1482.118286, -1021.305358, 23.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1487.410400, -1021.705200, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1436.580444, -1021.705200, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1441.888427, -1021.305358, 28.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1441.888427, -1021.305358, 23.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1447.180541, -1021.705200, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1452.488525, -1021.305358, 29.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1452.488525, -1021.305358, 24.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1452.488525, -1020.305358, 29.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1452.488525, -1020.305358, 24.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1471.488403, -1021.305358, 29.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1471.488403, -1021.305358, 24.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1471.488403, -1020.305358, 29.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1471.488403, -1020.305358, 24.188123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1466.210205, -1020.345275, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 7426, "vgncorp1", "elcid3_256", 0x00000000);
+tmpobjid = CreateDynamicObject(19380, 1456.560180, -1020.345275, 25.453767, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 7426, "vgncorp1", "elcid3_256", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1456.045532, -1020.346557, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1467.545532, -1020.346557, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1476.745483, -1021.706665, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1487.245483, -1021.706665, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1436.745483, -1021.706665, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1447.245483, -1021.706665, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1431.388305, -1021.305358, 28.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1431.388305, -1021.305358, 23.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1492.718383, -1021.305358, 28.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1492.718383, -1021.305358, 23.688123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1433.794799, -1023.398803, 31.188121, 90.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1443.794799, -1023.398803, 31.188121, 90.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1447.994750, -1023.398803, 31.188121, 90.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1490.184692, -1023.398803, 31.188121, 90.000000, 9.735610, 170.264389, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1480.184692, -1023.398803, 31.188121, 90.000000, 9.735610, 170.264389, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1475.984741, -1023.398803, 31.188121, 90.000000, 9.735610, 170.264389, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1465.984741, -1022.898803, 31.188121, 90.000000, 9.735610, 170.264389, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18766, 1457.984741, -1022.898803, 31.188121, 90.000000, 9.735610, 170.264389, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1461.628295, -1020.905456, 26.328126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(640, 1456.200805, -1020.829223, 23.828125, 0.000000, -10.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 9525, "boigas_sfw", "GEwhite1_64", 0x00000000);
+SetDynamicObjectMaterial(tmpobjid, 1, 4830, "airport2", "bevflower2", 0x00000000);
+tmpobjid = CreateDynamicObject(640, 1467.100830, -1020.829223, 23.828125, 0.000000, -10.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 9525, "boigas_sfw", "GEwhite1_64", 0x00000000);
+SetDynamicObjectMaterial(tmpobjid, 1, 4830, "airport2", "bevflower2", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1462.745483, -1020.346557, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "ANK", 20, "Quartz MS", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1460.745483, -1020.346557, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 1649, "wglass", "carshowwin2", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "LR B", 20, "Quartz MS", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(18762, 1473.548339, -1023.905456, 22.828126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1479.250976, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1474.250976, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1481.250976, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1472.250976, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1489.951049, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1484.951049, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1491.951049, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1482.951049, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1439.051025, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1434.051025, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1441.051025, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1432.051025, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1449.751098, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1444.751098, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1451.751098, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(19089, 1442.751098, -1025.407836, 30.756250, 30.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 4726, "libhelipad_lan2", "helipad_basepanel", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1478.548339, -1023.905456, 22.828126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1483.548339, -1023.905456, 22.828126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1488.548339, -1023.905456, 22.828126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1490.548339, -1023.905456, 22.828126, 90.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1450.459228, -1023.886840, 22.828126, 90.000000, 45.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1445.459228, -1023.886840, 22.828126, 90.000000, 45.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1440.459228, -1023.886840, 22.828126, 90.000000, 45.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1435.459228, -1023.886840, 22.828126, 90.000000, 45.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(18762, 1433.459228, -1023.886840, 22.828126, 90.000000, 45.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.617309, -1019.944213, 23.258123, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.617309, -1020.294311, 23.118122, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.657226, -1020.644348, 22.998123, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.657226, -1020.994323, 22.878124, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.657226, -1022.594421, 22.748125, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(19428, 1461.657226, -1024.194335, 22.748125, 180.000000, 90.000000, 180.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 19267, "mapmarkers", "red-2", 0x00000000);
+tmpobjid = CreateDynamicObject(2412, 1460.355224, -1023.986877, 22.834062, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(2412, 1463.655273, -1023.986877, 22.834062, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(2412, 1462.155273, -1023.986877, 22.834062, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1421.236328, -1020.364868, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1421.236328, -1020.364868, 25.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "Marriage loan venuma?", 90, "Ariel", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1420.236328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "sorry inga kedaikadhu", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1422.736328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "just for fun :)", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1421.236328, -1020.364868, 24.728124, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "loan with 3% interest", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1503.236328, -1020.364868, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo02", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1503.236328, -1020.364868, 25.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "business startup ah ?", 90, "Ariel", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1502.236328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "namba bank vanga", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1504.736328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "only aadhar needed", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1503.236328, -1020.364868, 24.728124, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "10% interest per annum", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1509.236328, -1020.364868, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 3119, "cs_ry_props", "GB_magazine07", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1509.236328, -1020.364868, 25.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "vehicle loan venuma ?", 90, "Ariel", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1509.236328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "naan than irukanla", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1415.236328, -1020.364868, 27.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 14420, "dr_gsbits", "mp_apt1_pic3", 0x00000000);
+tmpobjid = CreateDynamicObject(19360, 1415.236328, -1020.364868, 25.828125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "house seekram vangunga!!", 90, "Ariel", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1414.236328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "apo than vara mudiyum nanu", 100, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1417.236328, -1020.364868, 25.328125, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "House loan iruku", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+tmpobjid = CreateDynamicObject(19360, 1415.236328, -1020.364868, 24.728124, 0.000000, 0.000000, 90.000000, -1, -1, -1, 300.00, 300.00); 
+SetDynamicObjectMaterial(tmpobjid, 0, 2811, "gb_ornaments01", "GB_photo01", 0x00000000);
+SetDynamicObjectMaterialText(tmpobjid, 0, "More than 50 years!", 90, "Ariel", 20, 1, 0xFF000000, 0x00000000, 1);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+tmpobjid = CreateDynamicObject(14804, 1471.578002, -1022.364868, 23.828125, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(14804, 1452.677978, -1022.364868, 23.828125, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1471.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1473.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1475.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1477.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1479.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1481.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1483.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1485.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1487.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1489.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 45.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1491.923828, -1023.886718, 21.327478, 0.000000, 0.000000, 135.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1452.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1450.083740, -1023.905517, 21.327478, -0.000003, 0.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1448.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1446.083740, -1023.905517, 21.327478, -0.000003, 0.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1444.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1442.083740, -1023.905517, 21.327478, -0.000003, 0.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1440.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1438.083740, -1023.905517, 21.327478, -0.000003, 0.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1436.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1434.083740, -1023.905517, 21.327478, -0.000003, 0.000000, -134.999984, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(1231, 1432.083740, -1023.905517, 21.327478, 0.000000, 0.000003, -44.999980, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(2773, 1458.870483, -1023.597351, 23.338123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(2773, 1464.370483, -1023.597351, 23.338123, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1459.465576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1460.965576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1462.465576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1463.965576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1542.465576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1543.965576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1545.465576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
+tmpobjid = CreateDynamicObject(19121, 1546.965576, -1025.866455, 23.328126, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
 
 	// sf park
 	
@@ -55717,8 +55887,6 @@ public OnPlayerEnterCheckpoint(playerid)
 			mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE houses SET cash = %i WHERE id = %i", HouseInfo[houseid][hCash], HouseInfo[houseid][hID]);
 			mysql_tquery(connectionID, queryBuffer);
 
-			GivePlayerDirtyCash(playerid, PlayerInfo[playerid][pRobCash]);
-
 			SM(playerid, COLOR_AQUA, "You have earned $%i dirty cash for successfully completing the house robbery.", PlayerInfo[playerid][pRobCash]);
 
 			HouseInfo[houseid][hRobbed] = 1;
@@ -70719,11 +70887,11 @@ case DIALOG_LSPD:
 						{
 		    				if(IsLawEnforcement(playerid))
 		    				{
-						    	ShowPlayerDialog(playerid, DIALOG_FACTIONEQUIPMENT, DIALOG_STYLE_LIST, "Equipment", "Kevlar Vest\nPainkillers\nNitestick\nSD Pistol\nMP5\nAK47\nVest\nPdkit", "Select", "Cancel");
+						    	ShowPlayerDialog(playerid, DIALOG_FACTIONEQUIPMENT, DIALOG_STYLE_LIST, "Equipment", "Kevlar Vest\t2000\nPainkillers\t500\nNitestick\t 0\nSD Pistol\t0\nMP5\t0\nAK47\t0\nVest\t 100\nPdkit\t 4000", "Select", "Cancel");
 							}
 							else
 							{
-							    ShowPlayerDialog(playerid, DIALOG_FACTIONEQUIPMENT, DIALOG_STYLE_LIST, "Equipment", "Firstaid\nPainkillers\nMedkit", "Select", "Cancel");
+							    ShowPlayerDialog(playerid, DIALOG_FACTIONEQUIPMENT, DIALOG_STYLE_LIST, "Equipment", "Firstaid\t1000\nPainkillers\t250\nMedkit\t1000", "Select", "Cancel");
 							}
 						}
 						else if(listitem == 2) // UNIFORMS
@@ -71360,100 +71528,136 @@ case DIALOG_LSPD:
 		    {
 				switch(FactionInfo[PlayerInfo[playerid][pFaction]][fType])
 				{
-					case FACTION_POLICE,FACTION_SHERIFF, FACTION_FEDERAL:
-					{
-					    switch(listitem)
-					    {
-					        case 0:
-					        {
-					            SetScriptArmour(playerid, 100.0);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a kevlar vest from the locker and puts it on.", GetRPName(playerid));
-					        }
-					        case 1:
-					        {
-					            PlayerInfo[playerid][pPainkillers] = 5;
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a five pack of painkillers from the locker.", GetRPName(playerid));
+					case FACTION_POLICE, FACTION_SHERIFF, FACTION_FEDERAL:
+{
+    switch(listitem)
+    {
+        case 0: // Kevlar Vest - 2000
+        {
+            if(GetPlayerCash(playerid) < 2000)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $2000)");
+                
+            GivePlayerCash(playerid, -2000);
+            SetScriptArmour(playerid, 100.0);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a kevlar vest from the locker and puts it on.", GetRPName(playerid));
+        }
+        case 1: // Painkillers - 500
+        {
+            if(GetPlayerCash(playerid) < 500)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $500)");
+                
+            GivePlayerCash(playerid, -500);
+            PlayerInfo[playerid][pPainkillers] = 5;
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a five pack of painkillers from the locker.", GetRPName(playerid));
 
-					            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET painkillers = %i WHERE uid = %i", PlayerInfo[playerid][pPainkillers], PlayerInfo[playerid][pID]);
-					            mysql_tquery(connectionID, queryBuffer);
-					        }
-					        case 2:
-					        {
-                                GivePlayerWeaponEx(playerid, 3);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a nitestick from the locker.", GetRPName(playerid));
-					        }
-					        case 3:
-					        {
-								GivePlayerWeaponEx(playerid, 23);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs Sd pistol from the locker.", GetRPName(playerid));
-					       }
-						    case 4:
-					        {
-								GivePlayerWeaponEx(playerid, 29);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs mp5 from the locker.", GetRPName(playerid));
-					       }
-						    case 5:
-					        {
-								GivePlayerWeaponEx(playerid, 30);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs ak from the locker.", GetRPName(playerid));
-					       }
-				       	case 6:
-					        {
-					           if(PlayerInfo[playerid][pVest] >= 5)
-                              {
-                               return SCM(playerid, COLOR_SYNTAX, "You can't have more than 5 vest.");
-                               }
-					            PlayerInfo[playerid][pVest] += 1;
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a five pack of painkillers from the locker.", GetRPName(playerid));
+            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+                "UPDATE users SET painkillers = %i WHERE uid = %i",
+                PlayerInfo[playerid][pPainkillers], PlayerInfo[playerid][pID]);
+            mysql_tquery(connectionID, queryBuffer);
+        }
+        case 2: // Nitestick - Free
+        {
+            GivePlayerWeaponEx(playerid, 3);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a nitestick from the locker.", GetRPName(playerid));
+        }
+        case 3: // SD Pistol - Free
+        {
+            GivePlayerWeaponEx(playerid, 23);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs an SD pistol from the locker.", GetRPName(playerid));
+        }
+        case 4: // MP5 - Free
+        {
+            GivePlayerWeaponEx(playerid, 29);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs an MP5 from the locker.", GetRPName(playerid));
+        }
+        case 5: // AK47 - Free
+        {
+            GivePlayerWeaponEx(playerid, 30);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs an AK47 from the locker.", GetRPName(playerid));
+        }
+        case 6: // Vest - 100
+        {
+            if(PlayerInfo[playerid][pVest] >= 5)
+                return SCM(playerid, COLOR_SYNTAX, "You can't have more than 5 vests.");
+            if(GetPlayerCash(playerid) < 100)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $100)");
 
-					            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET vest = %i WHERE uid = %i", PlayerInfo[playerid][pVest], PlayerInfo[playerid][pID]);
-					            mysql_tquery(connectionID, queryBuffer);
-					        }
-			    		case 7:
-					        {
-					           if(PlayerInfo[playerid][pPdkit] >= 5)
-                              {
-                               return SCM(playerid, COLOR_SYNTAX, "You can't have more than 5 repairkit.");
-                               }
-					            PlayerInfo[playerid][pPdkit] += 1;
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a pdkit from the locker.", GetRPName(playerid));
+            GivePlayerCash(playerid, -100);
+            PlayerInfo[playerid][pVest] += 1;
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a vest from the locker.", GetRPName(playerid));
 
-					            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET pdkit = %i WHERE uid = %i", PlayerInfo[playerid][pPdkit], PlayerInfo[playerid][pID]);
-					            mysql_tquery(connectionID, queryBuffer);
-					        }
-						}
-					}
+            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+                "UPDATE users SET vest = %i WHERE uid = %i",
+                PlayerInfo[playerid][pVest], PlayerInfo[playerid][pID]);
+            mysql_tquery(connectionID, queryBuffer);
+        }
+        case 7: // Pdkit - 4000
+        {
+            if(PlayerInfo[playerid][pPdkit] >= 5)
+                return SCM(playerid, COLOR_SYNTAX, "You can't have more than 5 pd kits.");
+            if(GetPlayerCash(playerid) < 4000)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $4000)");
+
+            GivePlayerCash(playerid, -4000);
+            PlayerInfo[playerid][pPdkit] += 1;
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a PD Kit from the locker.", GetRPName(playerid));
+
+            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+                "UPDATE users SET pdkit = %i WHERE uid = %i",
+                PlayerInfo[playerid][pPdkit], PlayerInfo[playerid][pID]);
+            mysql_tquery(connectionID, queryBuffer);
+        }
+    }
+}
+
 					case FACTION_MEDIC:
-					{
-					    switch(listitem)
-					    {
-					        case 0:
-					        {
-					            SetPlayerHealth(playerid, 100.0);
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a firstaid from the locker and opens it.", GetRPName(playerid));
-					        }
-					        case 1:
-					        {
-					            PlayerInfo[playerid][pPainkillers] = 5;
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a five pack of painkillers from the locker.", GetRPName(playerid));
+{
+    switch(listitem)
+    {
+        case 0: // First Aid - $1000
+        {
+            if(GetPlayerCash(playerid) < 1000)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $1000)");
+            
+            GivePlayerCash(playerid, -1000);
+            SetPlayerHealth(playerid, 100.0);
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a first aid kit from the locker and uses it.", GetRPName(playerid));
+        }
+        case 1: // Painkillers - $250
+        {
+            if(GetPlayerCash(playerid) < 250)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $250)");
 
-					            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET painkillers = %i WHERE uid = %i", PlayerInfo[playerid][pPainkillers], PlayerInfo[playerid][pID]);
-					            mysql_tquery(connectionID, queryBuffer);
-					        }
-					        case 2:
-					        {
-					        	if(PlayerInfo[playerid][pMedkit] >= 10)
-							    {
-							        return SCM(playerid, COLOR_SYNTAX, "You can't have more than 10 medkit.");
-							    }
-					            PlayerInfo[playerid][pMedkit] += 10;
-					            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a medkit from the locker.", GetRPName(playerid));
+            GivePlayerCash(playerid, -250);
+            PlayerInfo[playerid][pPainkillers] = 5;
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a five pack of painkillers from the locker.", GetRPName(playerid));
 
-					            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET medkit = %i WHERE uid = %i", PlayerInfo[playerid][pMedkit], PlayerInfo[playerid][pID]);
-					            mysql_tquery(connectionID, queryBuffer);
-					        }
-						}
-					}
+            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+                "UPDATE users SET painkillers = %i WHERE uid = %i",
+                PlayerInfo[playerid][pPainkillers], PlayerInfo[playerid][pID]);
+            mysql_tquery(connectionID, queryBuffer);
+        }
+        case 2: // Medkit - $1000
+        {
+            if(PlayerInfo[playerid][pMedkit] >= 10)
+                return SCM(playerid, COLOR_SYNTAX, "You can't have more than 10 medkits.");
+            
+            if(GetPlayerCash(playerid) < 1000)
+                return SCM(playerid, COLOR_SYNTAX, "You don't have enough cash. (Cost: $1000)");
+
+            GivePlayerCash(playerid, -1000);
+            PlayerInfo[playerid][pMedkit] += 10;
+            SendProximityMessage(playerid, 20.0, COLOR_PURPLE, "** %s grabs a medkit from the locker.", GetRPName(playerid));
+
+            mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+                "UPDATE users SET medkit = %i WHERE uid = %i",
+                PlayerInfo[playerid][pMedkit], PlayerInfo[playerid][pID]);
+            mysql_tquery(connectionID, queryBuffer);
+        }
+    }
+}
+
+					
 					case FACTION_DOC:
 					{
 					    switch(listitem)
@@ -76553,14 +76757,6 @@ CMD:robphone(playerid, params[])
 	{
 		return SCM(playerid, COLOR_GREY, "There need to be 2+ LEO online in order to rob the poorvika");
 	}
-    if (RobStore[playerid] == 0 )
-    {
-    	GameTextForPlayer(playerid, "~w~Looting poorvika mobiles...", 20000, 3);
-        RobStore[playerid] = 1;
-        TogglePlayerControllable(playerid, 0);
-        ApplyAnimation(playerid,"BOMBER","BOM_Plant", 4.1, 1, 1, 1, 0, 0);
-        SetTimerEx("phonerob", 20000, false, "i", playerid);
-    }
     
    new string[128];
     format(string, sizeof(string), "~r~Poorvika Robbery on Progress");
@@ -76573,6 +76769,10 @@ CMD:robphone(playerid, params[])
 			SetPlayerCheckpoint(i, 1983.054565, -2065.273193, 13.368099, 3.0);
 		}
     }
+    GameTextForPlayer(playerid, "~w~Looting poorvika mobiles... wait panunga ok ah", 60000, 3);
+        TogglePlayerControllable(playerid, 0);
+        ApplyAnimation(playerid,"BOMBER","BOM_Plant", 4.1, 1, 1, 1, 0, 0);
+        SetTimerEx("phonerob", 60000, false, "i", playerid);
     SCM(playerid, COLOR_GREY2,"** Wait until cops arrive for roleplay purposes");
     format(string, sizeof(string), "** Breaking News: %s Robbed Poorvika Mobiles Thirutu Pasanga Kolla adhikiranga.", GetRPName(playerid));
 	SAM(COLOR_LIGHTGREEN, string);
@@ -76593,7 +76793,7 @@ CMD:robfleeca(playerid, params[])
     }
     if(OtherRobberyInfo[rFleecaTime] > 0)
 	{
-	    return SM(playerid, COLOR_SYNTAX, "[ERROR]{ffffff} The fleeca can be robbed again in %i hours. You can't rob it now.", OtherRobberyInfo[rFleecaTime]);
+	    return SM(playerid, COLOR_SYNTAX, "[ERROR]{ffffff} The fleeca can be robbed again in %i Minutes. You can't rob it now.", OtherRobberyInfo[rFleecaTime]);
 	}
     if(!PlayerInfo[playerid][pRobbag])
 	{
@@ -109745,222 +109945,92 @@ CMD:getdrug(playerid, params[])
 
 	return 1;
 }
-/*
-
-CMD:plantpot(playerid, params[])
-{	
-	if(PlayerInfo[playerid][pPotPlanted])
-	{
-		return SCM(playerid, COLOR_SYNTAX, "You have an active pot plant already.");
-	}
-	if(PlayerInfo[playerid][pSeeds] < 10)
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You don't have enough seeds. You need at least 10 seeds in order to plant them.");
-	}
-	if(GetPlayerInterior(playerid) > 0 || GetPlayerVirtualWorld(playerid) > 0)
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You can't plant indoors.");
-	}
-
-	GetPlayerPos(playerid, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ]);
-	GetPlayerFacingAngle(playerid, PlayerInfo[playerid][pPotA]);
-
-	PlayerInfo[playerid][pSeeds] -= 10;
-	PlayerInfo[playerid][pPotPlanted] = 1;
-	PlayerInfo[playerid][pPotTime] = 60;
-	PlayerInfo[playerid][pPotGrams] = 0;
-	PlayerInfo[playerid][pPotObject] = CreateDynamicObject(3409, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ] - 1.8, 0.0, 0.0, PlayerInfo[playerid][pPotA]);
-
-	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET seeds = %i, potplanted = 1, pottime = %i, potgrams = %i, pot_x = '%f', pot_y = '%f', pot_z = '%f', pot_a = '%f' WHERE uid = %i", PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pPotTime], PlayerInfo[playerid][pPotGrams], PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ], PlayerInfo[playerid][pPotA], PlayerInfo[playerid][pID]);
-	mysql_tquery(connectionID, queryBuffer);
-
-	SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s plants some seeds into the ground.", GetRPName(playerid));
-	SCM(playerid, COLOR_YELLOW, "You have planted a pot plant. Every two minutes your plant will grow one gram of pot.");
-	SCM(playerid, COLOR_YELLOW, "Your plant will be ready in 60 minutes. Be careful, as anyone who sees your plant can pick it!");
-	return 1;
-}
-
-CMD:plantinfo(playerid, params[])
+CMD:getseeds(playerid, params[])
 {
-	if(PlayerInfo[playerid][pGang] == -1)
-	{
-		return SCM(playerid, COLOR_SYNTAX, "You can't use this command as you're not a gang member.");
-	}
-	foreach(new i : Player)
-	{
-	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
-	    {
-	        SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s inspects the plant.", GetRPName(playerid));
-	        SM(playerid, COLOR_WHITE, "** This plant has so far grown %i grams of pot. It will be ready in %i/60 minutes.", PlayerInfo[i][pPotGrams], PlayerInfo[i][pPotTime]);
-	        return 1;
-		}
-	}
+    new Float:x, Float:y, Float:z;
+    GetPlayerPos(playerid, x, y, z);
 
-	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
-	return 1;
+    if(!IsPlayerInRangeOfPoint(playerid, 3.0, -1107.445190, -1624.682495, 76.373939))
+        return SCM(playerid, COLOR_SYNTAX, "You must be at the seed storage area to get seeds.");
+
+    if(PlayerInfo[playerid][pSeeds] >= 100)
+        return SCM(playerid, COLOR_SYNTAX, "You already have enough seeds (max 100).");
+
+    PlayerInfo[playerid][pSeeds] += 25;
+
+    SCM(playerid, COLOR_YELLOW, "You took 25 vegetable seeds from the storage. Go to the field and plant them.");
+    return 1;
 }
-
-CMD:pickplant(playerid, params[])
+CMD:plant(playerid, params[])
 {
-    foreach(new i : Player)
-	{
-	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
-	    {
-	        if(GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_DUCK)
-	        {
-	            return SCM(playerid, COLOR_SYNTAX, "You need to be crouched in order to pick a plant.");
-			}
-			if(PlayerInfo[i][pPotGrams] < 2)
-			{
-			    return SCM(playerid, COLOR_SYNTAX, "This plant hasn't grown that much yet. Wait a little while first.");
-			}
-			if(PlayerInfo[playerid][pPot] + PlayerInfo[i][pPotGrams] > GetPlayerCapacity(CAPACITY_WEED))
-			{
-			    return SM(playerid, COLOR_SYNTAX, "You currently have %i/%i pot. You can't carry anymore until you upgrade your inventory skill.", PlayerInfo[playerid][pPot], GetPlayerCapacity(CAPACITY_WEED));
-			}
+    if(PlayerInfo[playerid][pSeeds] < 10)
+        return SCM(playerid, COLOR_SYNTAX, "You need at least 10 seeds to start planting.");
 
-			PlayerInfo[playerid][pPickPlant] = i;
-			PlayerInfo[playerid][pPickTime] = 5;
+    if(GetPlayerInterior(playerid) > 0 || GetPlayerVirtualWorld(playerid) > 0)
+        return SCM(playerid, COLOR_SYNTAX, "You cannot plant indoors.");
 
-			SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s crouches down and starts picking at the pot plant.", GetRPName(playerid));
-			SCM(playerid, COLOR_WHITE, "** Allow up to five seconds for you to pick the plant.");
-			return 1;
-		}
-	}
+    new Float:x, Float:y, Float:z;
+    GetPlayerPos(playerid, x, y, z);
 
-	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
-	return 1;
-}*/
-
-CMD:getseed(playerid, params[])
-{	
-	if(IsPlayerInRangeOfPoint(playerid, 3.0, -1115.150024, -1637.900024, 76.367187) || IsPlayerInRangeOfPoint(playerid, 3.0, -1120.614990, -1629.484985, 76.367187))
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You are not in range of the seed vendor.");
-	}
-	{
-	if (GetFactionType(playerid) != FACTION_CP) 
-   {
-        return SendClientMessage(playerid, COLOR_SYNTAX, "You are not belongs to this community job; you can't use this command.");
+    // Check farm area
+    if(!(IsPlayerInRangeOfPoint(playerid, 20.0, -1073.324218, -1624.380859, 76.367187) ||
+         IsPlayerInRangeOfPoint(playerid, 20.0, -1047.415893, -1626.574584, 76.373939) ||
+         IsPlayerInRangeOfPoint(playerid, 20.0, -1026.052124, -1619.573974, 76.367187) ||
+         IsPlayerInRangeOfPoint(playerid, 20.0, -1023.314514, -1627.692016, 76.367187)))
+    {
+        return SCM(playerid, COLOR_SYNTAX, "You can only plant in the farm fields.");
     }
 
-    PlayerInfo[playerid][pSeeds] = 10;
-	GivePlayerCash(playerid, 250);
+    GetPlayerFacingAngle(playerid, PlayerInfo[playerid][pPlantA]);
+    PlayerInfo[playerid][pSeeds] -= 10;
+    PlayerInfo[playerid][pPlantPlanted] = 1;
+    PlayerInfo[playerid][pPlantTime] = 60; // 60 minutes
+    PlayerInfo[playerid][pVeggieKG] = 0;
 
-	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET seeds = %i WHERE uid = %i", PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pID]);
-	mysql_tquery(connectionID, queryBuffer);
+    PlayerInfo[playerid][pPlantObject] = CreateDynamicObject(19473, x, y, z - 1.0, 0.0, 0.0, PlayerInfo[playerid][pPlantA]);
 
+    mysql_format(connectionID, queryBuffer, sizeof(queryBuffer),
+        "UPDATE users SET seeds = %i, plantplanted = 1, planttime = %i, vegetime = %i, plant_x = '%f', plant_y = '%f', plant_z = '%f', plant_a = '%f' WHERE uid = %i",
+        PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pPlantTime], PlayerInfo[playerid][pVeggieKG],
+        x, y, z, PlayerInfo[playerid][pPlantA], PlayerInfo[playerid][pID]);
+    mysql_tquery(connectionID, queryBuffer);
+
+    SendProximityMessage(playerid, 20.0, COLOR_SERVER, "** %s plants vegetable seeds in the field.", GetRPName(playerid));
+    SCM(playerid, COLOR_YELLOW, "You have planted your seeds. The crops will be ready in about 60 minutes.");
+    return 1;
 }
-
-
-CMD:plant(playerid, params[])
-{	
-	if(IsPlayerInRangeOfPoint(playerid, 3.0, -1026.052124, -1619.573974, 76.367187) && IsPlayerInRangeOfPoint(playerid, 3.0, -1023.314514, -1627.692016, 76.367187))
-	{
-	SCM(playerid, COLOR_SYNTAX, "You're not in farming place!")
-	return 1;
-	}
-	if(PlayerInfo[playerid][pSeeds] < 10)
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You don't have enough seeds. You need at least 10 seeds in order to plant them.");
-	}
-	if(GetPlayerInterior(playerid) > 0 || GetPlayerVirtualWorld(playerid) > 0)
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You can't plant indoors.");
-	}
-
-	GetPlayerPos(playerid, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ]);
-	GetPlayerFacingAngle(playerid, PlayerInfo[playerid][pPotA]);
-
-	PlayerInfo[playerid][pSeeds] -= 10;
-	PlayerInfo[playerid][pPotTime] = 60;
-	PlayerInfo[playerid][pPotObject] = CreateDynamicObject(892, PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ] - 1.8, 0.0, 0.0, PlayerInfo[playerid][pPotA]);
-
-	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET seeds = %i, potplanted = 1, pottime = %i, potgrams = %i, pot_x = '%f', pot_y = '%f', pot_z = '%f', pot_a = '%f' WHERE uid = %i", PlayerInfo[playerid][pSeeds], PlayerInfo[playerid][pPotTime], PlayerInfo[playerid][pPotGrams], PlayerInfo[playerid][pPotX], PlayerInfo[playerid][pPotY], PlayerInfo[playerid][pPotZ], PlayerInfo[playerid][pPotA], PlayerInfo[playerid][pID]);
-	mysql_tquery(connectionID, queryBuffer);
-
-	SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s plants some seeds into the ground.", GetRPName(playerid));
-	SCM(playerid, COLOR_YELLOW, "You have planted a plant. Every two minutes your plant will grow any type of veggies.");
-	SCM(playerid, COLOR_YELLOW, "Your plant will be ready in 60 minutes.");
-	return 1;
-
-}
-
-CMD:plantinfo(playerid, params[])
+CMD:harvestveg(playerid, params[])
 {
-	
-	foreach(new i : Player)
-	{
-	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
-	    {
-	        SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s inspects the plant.", GetRPName(playerid));
-	        SM(playerid, COLOR_WHITE, "** This plant has so far grown %i Veggies. It will be ready in %i/60 minutes.", PlayerInfo[i][pPotGrams], PlayerInfo[i][pPotTime]);
-	        return 1;
-		}
-	}
+    if(!(IsPlayerInRangeOfPoint(playerid, 5.0, -1115.150024, -1637.900024, 76.367187) ||
+         IsPlayerInRangeOfPoint(playerid, 5.0, -1105.884277, -1638.271728, 76.367187)))
+        return SCM(playerid, COLOR_SYNTAX, "You must be at the harvesting area to process the crops.");
 
-	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
-	return 1;
+    if(PlayerInfo[playerid][pVeggieKG] < 5)
+        return SCM(playerid, COLOR_SYNTAX, "You don't have enough harvested crops to process.");
+
+    PlayerInfo[playerid][pProcessedVeggies] += PlayerInfo[playerid][pVeggieKG];
+    PlayerInfo[playerid][pVeggieKG] = 0;
+
+    SCM(playerid, COLOR_YELLOW, "You processed your crops into fresh vegetables.");
+    return 1;
 }
-
-CMD:pickplant(playerid, params[])
+CMD:packveggies(playerid, params[])
 {
-    foreach(new i : Player)
-	{
-	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
-	    {
-	        if(GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_DUCK)
-	        {
-	            return SCM(playerid, COLOR_SYNTAX, "You need to be crouched in order to pick a plant.");
-			}
-			if(PlayerInfo[i][pPotGrams] < 2)
-			{
-			    return SCM(playerid, COLOR_SYNTAX, "This plant hasn't grown that much yet. Wait a little while first.");
-			}
-			if(PlayerInfo[playerid][pPot] + PlayerInfo[i][pPotGrams] > GetPlayerCapacity(CAPACITY_WEED))
-			{
-			    return SM(playerid, COLOR_SYNTAX, "You currently have %i/%i veggies. You can't carry anymore .", PlayerInfo[playerid][pPot], GetPlayerCapacity(CAPACITY_WEED));
-			}
+    if(!(IsPlayerInRangeOfPoint(playerid, 5.0, -1117.180419, -1616.753051, 76.373939) ||
+         IsPlayerInRangeOfPoint(playerid, 5.0, -1117.412841, -1624.932373, 76.373939)))
+        return SCM(playerid, COLOR_SYNTAX, "You must be near the packing house to pack vegetables.");
 
-			PlayerInfo[playerid][pPickPlant] = i;
-			PlayerInfo[playerid][pPickTime] = 5;
+    if(PlayerInfo[playerid][pProcessedVeggies] < 5)
+        return SCM(playerid, COLOR_SYNTAX, "You need at least 5 processed vegetables to start packing.");
 
-			SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s crouches down and starts picking at the plant.", GetRPName(playerid));
-			SCM(playerid, COLOR_WHITE, "** Allow up to five seconds for you to pick the plant.");
-			return 1;
-		}
-	}
+    PlayerInfo[playerid][pPackedCrates] += PlayerInfo[playerid][pProcessedVeggies] / 5;
+    PlayerInfo[playerid][pProcessedVeggies] = 0;
 
-	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
-	return 1;
-}
-/*
-CMD:seizeplant(playerid, params[])
-{
-    if(!IsLawEnforcement(playerid))
-    {
-        return SCM(playerid, COLOR_SYNTAX, "You can't use this command as you aren't apart of law enforcement.");
-	}
-	if(PlayerInfo[playerid][pDuty] == 0)
-	{
-		return SCM(playerid, COLOR_GREY2, "You can't use this command while off-duty.");
-	}
-
-    foreach(new i : Player)
-	{
-	    if(PlayerInfo[i][pPotPlanted] && IsPlayerInRangeOfPoint(playerid, 3.0, PlayerInfo[i][pPotX], PlayerInfo[i][pPotY], PlayerInfo[i][pPotZ]))
-	    {
-	        SendProximityMessage(playerid, 20.0, COLOR_SERVER, "**{C2A2DA} %s seizes a pot plant weighing %i grams.", GetRPName(playerid), PlayerInfo[i][pPotGrams]);
-	        DestroyPotPlant(i);
-	        return 1;
-		}
-	}
-
-	SCM(playerid, COLOR_SYNTAX, "You are not in range of any plants.");
-	return 1;
+    SCM(playerid, COLOR_YELLOW, "You packed your vegetables into crates. Take them to the loading point for delivery.");
+    return 1;
 }
 
-CMD:cookmeth(playerid, params[])
+/*CMD:cookmeth(playerid, params[])
 {
 	if(!PlayerHasJob(playerid, JOB_DRUGDEALER))
     {
@@ -114269,7 +114339,6 @@ CMD:pbill(playerid, params[])
 	}
 
 	GivePlayerCash(targetid, -amount);
-	AddToPdVault(amount);
     SM(playerid, COLOR_AQUA, "{FFFF00} [INFO] {FFFFFF} You have successfully billed %s for {00FF00}$%i{FFFFFF} - {FF0000}%s", GetRPName(targetid), amount);
         SM(targetid, COLOR_AQUA, "{FFFF00} [INFO] {FFFFFF} %s charged you a bill for {00FF00}$%i{FFFFFF} - {FF0000}%s", GetRPName(playerid), amount);
 	return 1;
@@ -115654,6 +115723,37 @@ Vehicle_BarrelCount(vehicleid)
 	return count;
 }
 
+AddWood(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLumberWood] = 1;
+	PlayerInfo[playerid][pFurnitureWood]=1;
+    SetPlayerAttachedObject(playerid, 9, 19793, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
+    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
+	return 1;
+}
+RemoveWood(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLumberWood] = 0;
+	PlayerInfo[playerid][pFurnitureWood]=0;	
+	RemovePlayerAttachedObject(playerid, 9);
+	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+	return 1;
+}
+StopLoopingAnim(playerid)
+{
+    ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.1, 0, 0, 0, 0, 0);
+    ClearAnimations(playerid, 1);
+}
 
 cmd:choptree(playerid, params[])
 {
@@ -115889,7 +115989,49 @@ CMD:findtree(playerid, params[])
     SetPlayerCheckpoint(playerid, lumber2Positions[i][0], lumber2Positions[i][1], lumber2Positions[i][2], 5.0);
 	return 1;
 }
+Vehicle_BarrelCount2(vehicleid)
+{
+    new count;
+	if(GetVehicleModel(vehicleid) != 428 )
+	{
+		return 0;
+	}
+	for(new i; i < BARREL_LIMIT; i++)
+	{
+		if(IsValidDynamicObject(BarrelObjects[vehicleid][i]))
+		{
+		 	count++;
+		}
+	}
+	return count;
+}
 
+
+
+AddBox(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLoaderBox] = 1;
+    SetPlayerAttachedObject(playerid, 9, 1271, 6, 0.077999, 0.043999, -0.170999, -13.799953, 79.70, 0.0);
+    ApplyAnimationEx(playerid, "CARRY", "liftup", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_CARRY);
+	return 1;
+}
+RemoveBox(playerid)
+{
+    if(!IsPlayerConnected(playerid))
+    {
+		return 0;
+	}
+	PlayerInfo[playerid][pLoaderBox] = 0;
+	RemovePlayerAttachedObject(playerid, 9);
+	ApplyAnimationEx(playerid, "CARRY", "putdwn", 4.1, 0, 0, 0, 0, 0);
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+	return 1;
+}
 cmd:takemoney(playerid, params[])
 {
 	if(!PlayerHasJob(playerid, JOB_MONEYLOADER))
@@ -116524,38 +116666,6 @@ CMD:restaurantvault(playerid, params[])
 
 	SM(playerid, COLOR_AQUA, "** You have withdrawn $%i from the restaurant vault. The new balance is $%i.", amount, gRestvault);
 	SAM(COLOR_YELLOW, ""RED"AdmWarning: %s"WHITE" has withdrawn $%i from the restaurant vault, reason: %s", GetRPName(playerid), amount, reason);
-	return 1;
-}
-CMD:societymoney(playerid, params[])
-{
-	new amount, reason[64];
-
-	if((FactionInfo[PlayerInfo[playerid][pFaction]][fType] != FACTION_POLICE))
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "You must be a police to use this command.");
-	}
-	if(!IsPlayerInRangeOfLocker(playerid, PlayerInfo[playerid][pFaction]))
-	{
-	    return SCM(playerid, COLOR_ERROR, "[ERROR]:"WHITE" You are not in range of your faction locker.");
-	}
-	if(PlayerInfo[playerid][pFactionRank] < 5)
-    {
-        return SCM(playerid, COLOR_SYNTAX, "You Cannot Use This Command Your Rank Lvl Is Low.");
-	}
-	if(sscanf(params, "is[64]", amount, reason))
-	{
-	    return SM(playerid, COLOR_WHITE, "USAGE /societymoney [amount] [reason] ($%i available)", gPdvault);
-	}
-	if(amount < 1 || amount > gPdvault)
-	{
-	    return SCM(playerid, COLOR_SYNTAX, "Insufficient amount.");
-	}
-
-	AddToPdVault(-amount);
-	GivePlayerCash(playerid, amount);
-
-	SM(playerid, COLOR_AQUA, "** You have withdrawn $%i from the PD vault. The new balance is $%i.", amount, gPdvault);
-	SAM(COLOR_YELLOW, ""RED"AdmWarning: %s"WHITE" has withdrawn $%i from the PD vault, reason: %s", GetRPName(playerid), amount, reason);
 	return 1;
 }
 CMD:mechvault(playerid, params[])
