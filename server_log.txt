@@ -2186,3 +2186,47 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [20:43:10]   Loading filterscript 'jobmap.amx'...
 [20:43:10]   Loading filterscript 'antiddos.amx'...
 [20:43:10]   Loading filterscript 'Anti_vpn.amx'...
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:39:59] password = ""  (string)
+[11:39:59] 
+[11:39:59] Server Plugins
+[11:39:59] --------------
+[11:39:59]  Loading plugin: sampvoice.so
+[11:40:03]   Failed.
+[11:40:03]  Loading plugin: sampvoice
+[11:40:03]   Failed.
+[11:40:03]  Loading plugin: crashdetect.so
+[11:40:04]   Failed.
+[11:40:04]  Loading plugin: whirlpool.so
+[11:40:04]   Failed.
+[11:40:04]  Loading plugin: pawncmd.so
+[11:40:04]   Failed.
+[11:40:04]  Loading plugin: sscanf.so
+[11:40:05]   Failed.
+[11:40:05]  Loading plugin: streamer.so
+[11:40:05]   Failed.
+[11:40:05]  Loading plugin: SKY.so
+[11:40:05]   Failed.
+[11:40:05]  Loading plugin: mysql_static.so
+[11:40:05]   Failed.
+[11:40:05]  Loading plugin: nativechecker.so
+[11:40:05]   Failed.
+[11:40:05]  Loading plugin: pawn-memory.so
+[11:40:06]   Failed.
+[11:40:06]  Loading plugin: FileFunctions.so
+[11:40:06]   Failed.
+[11:40:06]  Loaded 0 plugins.
+
+[11:40:06] 
+[11:40:06] Ban list
+[11:40:06] --------
+[11:40:06]  Loaded: samp.ban
+[11:40:06] 
